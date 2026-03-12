@@ -14,6 +14,7 @@
             --text-dim: #666666;
             --accent-orange: #e67e22; 
             --font-main: 'Inter', sans-serif;
+            --font-accent: 'Caveat', cursive;
         }
 
         body {
@@ -35,16 +36,15 @@
 
         /* --- 1. Header (Hero) --- */
         .hero {
-            /* Dunklerer Verlauf für bessere Lesbarkeit des Textes */
             background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)), url('hero-bikepacking.JPG'); 
             background-size: cover;
             background-position: center;
-            height: 80vh; /* 80% der Viewport-Höhe */
+            height: 80vh; 
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
-            color: white; /* Weißer Text auf Bild */
+            color: white; 
         }
 
         .hero h1 {
@@ -58,25 +58,10 @@
 
         .hero-text {
             color: white;
-            font-size: 1.1rem;
-            margin: 30px 0;
+            font-family: var(--font-accent);
+            font-size: 1.8rem; /* Etwas größer für die Schreibschrift */
+            margin: 15px 0;
             text-shadow: 0 2px 8px rgba(0,0,0,0.3);
-        }
-
-        .btn-orange {
-            background-color: var(--accent-orange);
-            color: white;
-            padding: 15px 35px;
-            text-decoration: none;
-            border-radius: 8px;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            display: inline-block;
-            transition: background 0.3s ease;
-        }
-        .btn-orange:hover {
-            background-color: #d35400;
         }
 
         /* --- Allgemeine Sektions-Styles --- */
@@ -91,7 +76,7 @@
             margin-bottom: 50px;
         }
 
-        /* --- 2. FAMILY SHIFT (Desktop: Text links, Bild rechts) --- */
+        /* --- 2. FAMILY SHIFT --- */
         .family-shift {
             display: flex;
             align-items: center;
@@ -103,7 +88,7 @@
         }
 
         .family-content h2 {
-            text-align: left; /* Überschrift linksbündig */
+            text-align: left; 
             margin-bottom: 20px;
         }
 
@@ -116,32 +101,30 @@
         }
 
         .text-link {
-    color: var(--accent-orange);
-    text-decoration: none;
-    font-weight: 800; /* Extra fett, damit es sich deutlich abhebt */
-    border-bottom: 2px solid transparent; /* Vorbereitung für den Hover-Effekt */
-    transition: all 0.3s ease;
-}
+            color: var(--accent-orange);
+            text-decoration: none;
+            font-weight: 800; 
+            border-bottom: 2px solid transparent; 
+            transition: all 0.3s ease;
+        }
 
-.text-link:hover {
-    color: #a0c4d6; /* Ein etwas kräftigeres Hellblau als das blasse primary-blue, damit es lesbar bleibt */
-    border-bottom: 2px solid #a0c4d6;
-}
+        .text-link:hover {
+            color: #a0c4d6; 
+            border-bottom: 2px solid #a0c4d6;
+        }
 
-        /* Kreisrunder Bildausschnitt */
         .family-image {
             width: 350px;
             height: 350px;
-            border-radius: 50%; /* Macht es kreisrund */
+            border-radius: 50%; 
             background-image: url('family-foto.jpg'); 
             background-size: cover;
             background-position: center;
             border: 8px solid white;
             box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            z-index: 2; /* Bild über den Kreisen */
+            z-index: 2; 
         }
 
-        /* Dekorative blaue Kreise (Fixe Pixelwerte, damit sie rund bleiben) */
         .deco-circle {
             position: absolute;
             background-color: var(--primary-blue);
@@ -149,20 +132,9 @@
             opacity: 1;
             z-index: 1;
         }
-        .deco-circle-1 { 
-            width: 120px; 
-            height: 120px; 
-            top: -15px; 
-            left: 25px; 
-        }
-        .deco-circle-2 { 
-            width: 180px; 
-            height: 180px; 
-            bottom: -35px; 
-            right: 15px; 
-        }
+        .deco-circle-1 { width: 120px; height: 120px; top: -15px; left: 25px; }
+        .deco-circle-2 { width: 180px; height: 180px; bottom: -35px; right: 15px; }
 
-        /* Social Media Buttons (Helles Blau) */
         .button-group {
             display: flex;
             gap: 15px;
@@ -182,15 +154,12 @@
             opacity: 0.8;
         }
 
-        /* --- 3. ROUTES LEGACY (ZIEGEL-LAYOUT) --- */
+        /* --- 3. ROUTES LEGACY --- */
         .routes-legacy {
-            background-color: #f9f9f9; /* Ganz leicht getönter Hintergrund */
+            background-color: #f9f9f9; 
             text-align: center;
         }
 
-        .routes-legacy h2 {
-            margin-bottom: 20px;
-        }
         .routes-legacy-intro {
             text-align: center;
             color: var(--text-dim);
@@ -198,20 +167,18 @@
             margin: 0 auto 60px auto;
         }
 
-        /* Grid Layout für viele Kacheln */
         .route-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Responsives Grid */
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
             gap: 30px;
         }
 
-        /* Kachel Styles (Details Tag für Toggles) */
         .route-card {
             background-color: var(--primary-blue);
             padding: 40px 20px;
             border-radius: 5px;
             cursor: pointer;
-            list-style: none; /* Standard-Pfeil entfernen */
+            list-style: none; 
             transition: transform 0.2s;
         }
 
@@ -221,6 +188,7 @@
 
         .route-card summary {
             list-style: none;
+            outline: none;
         }
         .route-card summary::-webkit-details-marker { display: none; }
 
@@ -237,7 +205,7 @@
             margin-bottom: 15px;
         }
 
-        /* Toggle Pfeil (Zentriert unter Text) */
+        /* Toggle Pfeil Animation */
         .toggle-icon {
             background: var(--accent-orange);
             color: white;
@@ -249,16 +217,26 @@
             justify-content: center;
             margin: 15px auto;
             font-size: 0.8rem;
+            transition: transform 0.3s ease;
         }
 
-        /* Aufklappbarer Inhalt (Standardmäßig ausgeblendet) */
+        .route-card[open] .toggle-icon {
+            transform: rotate(180deg);
+        }
+
+        /* Aufklappbarer Inhalt Animation */
         .route-content {
             color: var(--text-dim);
             font-size: 1rem;
             padding: 15px 0;
+            animation: fadeIn 0.4s ease-out;
         }
 
-        /* GaiaGPS Button (Weiß, fettgedruckt, unten) */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
         .btn-gaia {
             background: white;
             color: black;
@@ -285,46 +263,43 @@
             border-top: 1px solid #eee;
         }
 
- /* --- RESPONSIVE DESIGN --- */
-@media (max-width: 768px) {
-    .hero h1 { font-size: 2.5rem; }
-    .hero { height: 60vh; }
-    .container { padding: 0 20px; }
-    section { padding: 60px 0; }
+        /* --- RESPONSIVE DESIGN --- */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            .hero-text { font-size: 1.4rem; }
+            .hero { height: 60vh; }
+            .container { padding: 0 20px; }
+            section { padding: 60px 0; }
 
-    .family-shift {
-        flex-direction: column; 
-        text-align: center;
-        gap: 0; /* Wir steuern den Abstand jetzt präzise über margin */
-    }
+            .family-shift {
+                flex-direction: column; 
+                text-align: center;
+                gap: 0; 
+            }
 
-    .family-content {
-        margin-bottom: 60px; /* Hier wird der Platz nach unten gedrückt */
-    }
+            .family-content {
+                margin-bottom: 60px; 
+            }
 
-    .family-content h2 { text-align: center; }
-    .button-group { justify-content: center; }
+            .family-content h2 { text-align: center; }
+            .button-group { justify-content: center; }
 
-    .family-image-container {
-        max-width: 300px;
-        width: 100%; /* Verhindert das Verschwinden */
-        margin: 0 auto;
-        flex-shrink: 0; /* Zwingt den Browser, den Platz für das Bild zu lassen */
-    }
+            .family-image-container {
+                max-width: 300px;
+                width: 100%; 
+                margin: 0 auto;
+                flex-shrink: 0; 
+            }
 
-    .family-image {
-        width: 100%;
-        height: auto;
-        aspect-ratio: 1/1;
-    }
+            .family-image {
+                width: 100%;
+                height: auto;
+                aspect-ratio: 1/1;
+            }
 
-    .deco-circle-1 { width: 80px; height: 80px; top: -10px; left: 10px; }
-    .deco-circle-2 { width: 120px; height: 120px; bottom: -20px; right: 10px; }
-}
-
-
-
-        
+            .deco-circle-1 { width: 80px; height: 80px; top: -10px; left: 10px; }
+            .deco-circle-2 { width: 120px; height: 120px; bottom: -20px; right: 10px; }
+        }
     </style>
 </head>
 <body>
@@ -335,7 +310,6 @@
             <p class="hero-text">
                 A handpicked collection of bikepacking routes by Brigitte & Ivo
             </p>
-            <a href="#routes" class="btn-orange">Learn More</a>
         </div>
     </header>
 
@@ -344,7 +318,7 @@
             <div class="family-content">
                 <h2>The Family Shift</h2>
                 <p>
-                    For years, this was the home of our travel website, documenting over seven years of life on the road. While our While our long-term solo rides <a href="https://new.spotwalla.com/trip/788b-5f49c-4a09/view?homeActive=1&showAll=1" target="_blank" class="text-link">spanned 2009–2019</a>, we have been traveling as a family of four with our twins since 2020. Though we no longer maintain a full-scale website, you can still find stories and short updates here:
+                    For years, this was the home of our travel website, documenting over seven years of life on the road. While our long-term solo rides <a href="https://new.spotwalla.com/trip/788b-5f49c-4a09/view?homeActive=1&showAll=1" target="_blank" class="text-link">spanned 2009–2019</a>, we have been traveling as a family of four with our twins since 2020. Though we no longer maintain a full-scale website, you can still find stories and short updates here:
                 </p>
                 <div class="button-group">
                     <a href="https://www.instagram.com/bikepackground" target="_blank" class="btn-blue">Instagram</a>
@@ -363,9 +337,9 @@
     <section id="routes" class="routes-legacy">
         <div class="container">
             <h2>GAIAGPS ROUTES LEGACY</h2>
-            <p>
-                    For those planning their own trips, the route descriptions found below remain as our legacy of a wild time out there.
-                </p>
+            <p class="routes-legacy-intro">
+                For those planning their own trips, the route descriptions found below remain as our legacy of a wild time out there.
+            </p>
         
             <div class="route-grid">
                 
