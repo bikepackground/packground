@@ -28,7 +28,7 @@
         }
 
         .container {
-            max-width: 1100px; /* Leicht erhöht für das 3er-Grid */
+            max-width: 1100px; 
             margin: 0 auto;
             padding: 0 40px;
         }
@@ -178,7 +178,6 @@
 
         .route-grid {
             display: grid;
-            /* Erzwingt 3 Spalten auf Desktop */
             grid-template-columns: repeat(3, 1fr); 
             gap: 20px;
         }
@@ -242,7 +241,7 @@
             color: var(--text-dim);
             font-size: 0.9rem;
             padding: 10px 0;
-            text-align: left;
+            text-align: center; 
             animation: fadeIn 0.4s ease-out;
         }
 
@@ -254,7 +253,7 @@
         .btn-gaia {
             background: white;
             color: black;
-            padding: 8px 15px;
+            padding: 12px 15px;
             text-decoration: none;
             font-weight: 800;
             border: 1px solid #ccc;
@@ -264,34 +263,44 @@
             font-size: 0.75rem;
             text-transform: uppercase;
             transition: background 0.3s ease;
+            line-height: 1.4;
         }
         .btn-gaia:hover {
             background-color: #f0f0f0;
         }
 
+        .btn-subtext {
+            display: block;
+            font-size: 0.65rem;
+            font-weight: 400;
+            color: #888;
+            text-transform: none; /* Kein Uppercase für den Hinweis */
+            margin-top: 2px;
+        }
+
         /* --- Footer --- */
         footer {
             text-align: center;
-            margin-top: 100px; 
-            padding: 60px 0 120px 0; 
+            border-top: 1px solid #eee;
+            margin-top: 120px; 
+            padding-top: 80px; 
+            padding-bottom: 180px; 
             font-size: 0.85rem;
             color: var(--text-dark);
-            border-top: 1px solid #eee;
+            display: block;
         }
 
         .footer-subtext {
             font-size: 0.75rem;
             color: #aaa;
             max-width: 600px;
-            margin: 15px auto 0 auto;
+            margin: 20px auto 0 auto;
             line-height: 1.6;
         }
 
         /* --- RESPONSIVE DESIGN --- */
         @media (max-width: 992px) {
-            .route-grid {
-                grid-template-columns: repeat(2, 1fr); /* 2 Spalten auf Tablets */
-            }
+            .route-grid { grid-template-columns: repeat(2, 1fr); }
         }
 
         @media (max-width: 768px) {
@@ -306,11 +315,13 @@
             .family-image-container { max-width: 300px; width: 100%; margin: 0 auto; flex-shrink: 0; }
             .family-image { width: 100%; height: auto; aspect-ratio: 1/1; }
             
-            .route-grid {
-                grid-template-columns: 1fr; /* 1 Spalte auf Mobile */
-            }
+            .route-grid { grid-template-columns: 1fr; }
             
-            footer { margin-top: 60px; padding: 40px 20px 80px 20px; }
+            footer { 
+                margin-top: 80px; 
+                padding-top: 50px; 
+                padding-bottom: 120px; 
+            }
         }
     </style>
 </head>
@@ -364,7 +375,10 @@
                     </summary>
                     <div class="route-content">
                         <p>A demanding journey crossing two national parks and a UNESCO site. Linking the Mongolian and Russian Altay via ancient nomad paths and the mystical Ukok Plateau. Expect steep gradients and trailless hike-a-bike passes.</p>
-                        <a href="https://www.gaiagps.com/public/F1HjKV7V0q6huGWdlTOr6QDg/" target="_blank" class="btn-gaia">VIEW ON GAIAGPS</a>
+                        <a href="https://www.gaiagps.com/public/F1HjKV7V0q6huGWdlTOr6QDg/" target="_blank" class="btn-gaia">
+                            VIEW ON GAIAGPS
+                            <span class="btn-subtext">Find full route description in the notes section</span>
+                        </a>
                     </div>
                 </details>
 
@@ -376,7 +390,10 @@
                     </summary>
                     <div class="route-content">
                         <p>An expedition across the world’s second-largest freshwater lake in brutal Siberian winter. Ride over meter-thick black ice, navigate pressure ridges, and endure temperatures down to -30°C.</p>
-                        <a href="https://www.gaiagps.com/public/Bld2Zq3rAL5KQHMe7bopkfxN/" target="_blank" class="btn-gaia">VIEW ON GAIAGPS</a>
+                        <a href="https://www.gaiagps.com/public/Bld2Zq3rAL5KQHMe7bopkfxN/" target="_blank" class="btn-gaia">
+                            VIEW ON GAIAGPS
+                            <span class="btn-subtext">Find full route description in the notes section</span>
+                        </a>
                     </div>
                 </details>
 
@@ -388,7 +405,10 @@
                     </summary>
                     <div class="route-content">
                         <p>Traveling back in time through the ancestral home of the Berbers. This connoisseur’s route crosses the range four times and conquers ten major passes via ancient mule tracks.</p>
-                        <a href="https://www.gaiagps.com/public/JjKjl887ovCcJ7sXCsTFZtUG/" target="_blank" class="btn-gaia">VIEW ON GAIAGPS</a>
+                        <a href="https://www.gaiagps.com/public/JjKjl887ovCcJ7sXCsTFZtUG/" target="_blank" class="btn-gaia">
+                            VIEW ON GAIAGPS
+                            <span class="btn-subtext">Find full route description in the notes section</span>
+                        </a>
                     </div>
                 </details>
 
@@ -400,7 +420,10 @@
                     </summary>
                     <div class="route-content">
                         <p>One of the most spectacular glacier tracks in the Andes. A wild loop circumnavigating the mighty Illampu (6,368m), featuring high-altitude passes over 5,090 meters.</p>
-                        <a href="https://www.gaiagps.com/public/NDTPOQYQiHyf93shdMPq6Uq4/" target="_blank" class="btn-gaia">VIEW ON GAIAGPS</a>
+                        <a href="https://www.gaiagps.com/public/NDTPOQYQiHyf93shdMPq6Uq4/" target="_blank" class="btn-gaia">
+                            VIEW ON GAIAGPS
+                            <span class="btn-subtext">Find full route description in the notes section</span>
+                        </a>
                     </div>
                 </details>
 
@@ -412,7 +435,10 @@
                     </summary>
                     <div class="route-content">
                         <p>A journey through rusty red dunes and deep-cut wadis. Features 300 kilometers of world-class, purpose-built singletrack on the Israel Bike Trail through the profound silence of the Negev.</p>
-                        <a href="https://www.gaiagps.com/public/ieBV28BKwH8lZWKNOKlgb9Qe/" target="_blank" class="btn-gaia">VIEW ON GAIAGPS</a>
+                        <a href="https://www.gaiagps.com/public/ieBV28BKwH8lZWKNOKlgb9Qe/" target="_blank" class="btn-gaia">
+                            VIEW ON GAIAGPS
+                            <span class="btn-subtext">Find full route description in the notes section</span>
+                        </a>
                     </div>
                 </details>
 
@@ -424,7 +450,10 @@
                     </summary>
                     <div class="route-content">
                         <p>A bikepacking paradise of vast steppe and rugged mountains. Experience a country where nomadic culture is life, navigating an infinite network of dirt tracks through magical light.</p>
-                        <a href="https://www.gaiagps.com/public/NqtbrasThqKIXRyojIbrqr9d/" target="_blank" class="btn-gaia">VIEW ON GAIAGPS</a>
+                        <a href="https://www.gaiagps.com/public/NqtbrasThqKIXRyojIbrqr9d/" target="_blank" class="btn-gaia">
+                            VIEW ON GAIAGPS
+                            <span class="btn-subtext">Find full route description in the notes section</span>
+                        </a>
                     </div>
                 </details>
 
@@ -436,7 +465,10 @@
                     </summary>
                     <div class="route-content">
                         <p>Discover Utah’s slot canyons and rock formations off the beaten path. Traverses the Grand Staircase-Escalante and Capitol Reef, concluding in the world-famous slickrock of Moab.</p>
-                        <a href="https://www.gaiagps.com/public/KfT341Zfw8hYm1cPV95xeuhk/" target="_blank" class="btn-gaia">VIEW ON GAIAGPS</a>
+                        <a href="https://www.gaiagps.com/public/KfT341Zfw8hYm1cPV95xeuhk/" target="_blank" class="btn-gaia">
+                            VIEW ON GAIAGPS
+                            <span class="btn-subtext">Find full route description in the notes section</span>
+                        </a>
                     </div>
                 </details>
 
@@ -448,7 +480,10 @@
                     </summary>
                     <div class="route-content">
                         <p>A gargantuan lunar landscape of stone and salt lakes. Experience the raw beauty of the Andes Puna, where volcanic cones cast long shadows and the solitude is as deep as the silence.</p>
-                        <a href="https://www.gaiagps.com/public/SO50AOfMKBMawtUPQput5teq/" target="_blank" class="btn-gaia">VIEW ON GAIAGPS</a>
+                        <a href="https://www.gaiagps.com/public/SO50AOfMKBMawtUPQput5teq/" target="_blank" class="btn-gaia">
+                            VIEW ON GAIAGPS
+                            <span class="btn-subtext">Find full route description in the notes section</span>
+                        </a>
                     </div>
                 </details>
 
@@ -460,7 +495,10 @@
                     </summary>
                     <div class="route-content">
                         <p>Traversing the historic provinces of Kham and Amdo. Over twenty passes exceeding 4,000m, connecting remote monasteries and Khampa nomad camps via ancient hiking trails.</p>
-                        <a href="https://www.gaiagps.com/public/trjjP0koQC9lEasOr5kNnUU2/" target="_blank" class="btn-gaia">VIEW ON GAIAGPS</a>
+                        <a href="https://www.gaiagps.com/public/trjjP0koQC9lEasOr5kNnUU2/" target="_blank" class="btn-gaia">
+                            VIEW ON GAIAGPS
+                            <span class="btn-subtext">Find full route description in the notes section</span>
+                        </a>
                     </div>
                 </details>
 
