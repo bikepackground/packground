@@ -6,12 +6,10 @@
     <title>EXPLORE THE PACKGROUND | Bikepacking Routes</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
     <style>
-        /* --- CSS STYLES --- */
         :root {
-            --primary-blue: #d8e8f0; /* Hellblau aus dem Screenshot */
+            --primary-blue: #d8e8f0; 
             --bg-light: #ffffff;
             --text-dark: #1a1a1a;
-            --text-dim: #666666;
             --accent-orange: #e67e22; 
             --font-main: 'Inter', sans-serif;
         }
@@ -20,47 +18,35 @@
             font-family: var(--font-main);
             background-color: var(--bg-light);
             color: var(--text-dark);
-            line-height: 1.6;
             margin: 0;
             padding: 0;
             -webkit-font-smoothing: antialiased;
         }
 
-        /* --- Container für sauberen Weißraum --- */
         .container {
             max-width: 1000px;
             margin: 0 auto;
             padding: 0 40px;
         }
 
-        /* --- 1. Header (Hero) --- */
+        /* --- HERO --- */
         .hero {
-            /* Dunklerer Verlauf für bessere Lesbarkeit des Textes */
-            background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)), url('hero-bikepacking.jpg'); 
+            background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)), url('hero-bikepacking.jpg'); 
             background-size: cover;
             background-position: center;
-            height: 80vh; /* 80% der Viewport-Höhe */
+            height: 70vh;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
-            color: white; /* Weißer Text auf Bild */
+            color: white;
         }
 
         .hero h1 {
-            font-size: 3.5rem;
+            font-size: clamp(2rem, 8vw, 3.5rem);
             font-weight: 800;
-            margin: 0;
-            letter-spacing: -2px;
             text-transform: uppercase;
-            text-shadow: 0 4px 15px rgba(0,0,0,0.5);
-        }
-
-        .hero-text {
-            color: white;
-            font-size: 1.1rem;
-            margin: 30px 0;
-            text-shadow: 0 2px 8px rgba(0,0,0,0.3);
+            margin: 0;
         }
 
         .btn-orange {
@@ -71,41 +57,21 @@
             border-radius: 8px;
             font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 1px;
             display: inline-block;
-            transition: background 0.3s ease;
-        }
-        .btn-orange:hover {
-            background-color: #d35400;
+            margin-top: 25px;
         }
 
-        /* --- Allgemeine Sektions-Styles --- */
-        section {
-            padding: 80px 0;
-        }
-
-        h2 {
-            text-align: center;
-            font-size: 2.2rem;
-            font-weight: 700;
-            margin-bottom: 50px;
-        }
-
-        /* --- 2. FAMILY SHIFT (Desktop: Text links, Bild rechts) --- */
+        /* --- FAMILY SHIFT --- */
+        .family-section { padding: 100px 0; }
+        
         .family-shift {
             display: flex;
             align-items: center;
             gap: 60px;
         }
 
-        .family-content {
-            flex: 1;
-        }
-
-        .family-content h2 {
-            text-align: left; /* Überschrift linksbündig */
-            margin-bottom: 20px;
-        }
+        .family-content { flex: 1.2; }
+        .family-content h2 { font-size: 2.2rem; margin-bottom: 20px; }
 
         .family-image-container {
             flex: 1;
@@ -115,46 +81,29 @@
             align-items: center;
         }
 
-        /* Kreisrunder Bildausschnitt */
         .family-image {
             width: 350px;
             height: 350px;
-            border-radius: 50%; /* Macht es kreisrund */
+            border-radius: 50%;
             background-image: url('family-foto.jpg'); 
             background-size: cover;
             background-position: center;
             border: 8px solid white;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            z-index: 2; /* Bild über den Kreisen */
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+            z-index: 2;
         }
 
-        /* Dekorative blaue Kreise (Fixe Pixelwerte, damit sie rund bleiben) */
+        /* Dekokreise: opacity auf 1 gesetzt für volle Farbe */
         .deco-circle {
             position: absolute;
             background-color: var(--primary-blue);
             border-radius: 50%;
-            opacity: 0.6;
             z-index: 1;
+            opacity: 1; /* Geändert von 0.6 auf 1 */
+            aspect-ratio: 1/1; /* Garantiert Kreisform */
         }
-        .deco-circle-1 { 
-            width: 120px; 
-            height: 120px; 
-            top: -15px; 
-            left: 25px; 
-        }
-        .deco-circle-2 { 
-            width: 180px; 
-            height: 180px; 
-            bottom: -35px; 
-            right: 15px; 
-        }
-
-        /* Social Media Buttons (Helles Blau) */
-        .button-group {
-            display: flex;
-            gap: 15px;
-            margin-top: 30px;
-        }
+        .deco-circle-1 { width: 120px; top: -10px; left: 10%; }
+        .deco-circle-2 { width: 180px; bottom: -30px; right: 5%; }
 
         .btn-blue {
             background-color: var(--primary-blue);
@@ -163,170 +112,91 @@
             text-decoration: none;
             border-radius: 5px;
             font-weight: 600;
-            transition: opacity 0.3s ease;
-        }
-        .btn-blue:hover {
-            opacity: 0.8;
+            display: inline-block;
+            margin-top: 10px;
+            margin-right: 10px;
         }
 
-        /* --- 3. ROUTES LEGACY (ZIEGEL-LAYOUT) --- */
+        /* --- ROUTES LEGACY --- */
         .routes-legacy {
-            background-color: #f9f9f9; /* Ganz leicht getönter Hintergrund */
+            background-color: #f9f9f9;
+            padding: 80px 0;
             text-align: center;
         }
 
-        .routes-legacy h2 {
-            margin-bottom: 20px;
-        }
-        .routes-legacy-intro {
-            text-align: center;
-            color: var(--text-dim);
-            max-width: 600px;
-            margin: 0 auto 60px auto;
-        }
-
-        /* Grid Layout für viele Kacheln */
         .route-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Responsives Grid */
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
+            margin-top: 50px;
         }
 
-        /* Kachel Styles (Details Tag für Toggles) */
         .route-card {
             background-color: var(--primary-blue);
-            padding: 40px 20px;
-            border-radius: 5px;
+            padding: 40px 25px;
+            border-radius: 8px;
             cursor: pointer;
-            list-style: none; /* Standard-Pfeil entfernen */
-            transition: transform 0.2s;
-        }
-
-        .route-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .route-card summary {
             list-style: none;
         }
+
+        .route-card summary { list-style: none; outline: none; }
         .route-card summary::-webkit-details-marker { display: none; }
 
-        .route-card h3 {
-            margin: 0;
-            font-size: 1.4rem;
-            color: #000;
-        }
-        .route-card .region {
-            display: block;
-            margin-top: 5px;
-            font-size: 1rem;
-            color: #333;
-            margin-bottom: 15px;
-        }
+        .route-card h3 { margin: 0; font-size: 1.5rem; }
+        .route-card .region { display: block; margin: 5px 0 15px 0; font-size: 0.95rem; }
 
-        /* Toggle Pfeil (Zentriert unter Text) */
         .toggle-icon {
             background: var(--accent-orange);
             color: white;
-            width: 30px;
-            height: 30px;
+            width: 32px; height: 32px;
             border-radius: 50%;
             display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 15px auto;
-            font-size: 0.8rem;
+            align-items: center; justify-content: center;
+            margin: 10px auto;
         }
 
-        /* Aufklappbarer Inhalt (Standardmäßig ausgeblendet) */
-        .route-content {
-            color: var(--text-dim);
-            font-size: 1rem;
-            padding: 15px 0;
-        }
-
-        /* GaiaGPS Button (Weiß, fettgedruckt, unten) */
         .btn-gaia {
             background: white;
             color: black;
-            padding: 10px 20px;
+            padding: 12px 20px;
             text-decoration: none;
             font-weight: 800;
-            border: 1px solid #ccc;
+            border: 1px solid #ddd;
             display: inline-block;
             margin-top: 20px;
-            font-size: 0.8rem;
-            text-transform: uppercase;
-            transition: background 0.3s ease;
-        }
-        .btn-gaia:hover {
-            background-color: #f0f0f0;
+            font-size: 0.85rem;
+            letter-spacing: 0.5px;
         }
 
-        /* --- Footer --- */
-        footer {
-            text-align: center;
-            padding: 50px 0;
-            font-size: 0.8rem;
-            color: #999;
-            border-top: 1px solid #eee;
-        }
+        footer { padding: 40px; text-align: center; color: #999; font-size: 0.8rem; border-top: 1px solid #eee; }
 
-        /* --- RESPONSIVE DESIGN --- */
+        /* --- RESPONSIVE --- */
         @media (max-width: 768px) {
-            .hero h1 { font-size: 2.5rem; }
-            .hero { height: 60vh; }
-            .container { padding: 0 20px; }
-            section { padding: 60px 0; }
-
-            .family-shift {
-                flex-direction: column; /* Bild oben, Text unten */
-                text-align: center;
-                gap: 40px;
-            }
-
+            .family-shift { flex-direction: column; text-align: center; gap: 50px; }
             .family-content h2 { text-align: center; }
-            .button-group { justify-content: center; }
-
-            .family-image-container {
-                max-width: 300px;
-                margin: 0 auto;
-            }
-
-            .family-image {
-                width: 100%;
-                height: auto;
-                aspect-ratio: 1/1;
-            }
-
-            /* Anpassung der Dekokreise für mobile Ansicht */
-            .deco-circle-1 { width: 80px; height: 80px; top: -10px; left: 10px; }
-            .deco-circle-2 { width: 120px; height: 120px; bottom: -20px; right: 10px; }
+            .family-image { width: 280px; height: 280px; }
+            .deco-circle-1 { width: 80px; }
+            .deco-circle-2 { width: 130px; }
+            .container { padding: 0 20px; }
         }
     </style>
 </head>
 <body>
 
     <header class="hero">
-        <div class="hero-content container">
+        <div class="container">
             <h1>Explore The PackGround</h1>
-            <p class="hero-text">
-                Crossing Europe, Asia, Africa, and the Americas on two wheels. 
-                Documenting the world’s most captivating landscapes since 2009.
-            </p>
             <a href="#routes" class="btn-orange">Learn More</a>
         </div>
     </header>
 
-    <section class="container">
+    <section class="family-section container">
         <div class="family-shift">
             <div class="family-content">
                 <h2>The Family Shift</h2>
-                <p>
-                    While our long-term solo rides spanned 2009–2019, we have been traveling as a <span style="font-weight: 600; color: var(--text-dark);">family of four</span> with our twins since 2020. Though we no longer maintain a big website, we continue to document our life on the road through short updates here:
-                </p>
+                <p>Since 2020, we have been traveling as a family of four with our twins. We continue to document our life on the road through short updates on Instagram and FindPenguins.</p>
                 <div class="button-group">
-                    <a href="https://www.instagram.com/bikepackground" target="_blank" class="btn-blue">Instagram</a>
+                    <a href="https://www.instagram.com/bikepackground" target="_blank" class="btn-blue">Instagram @bikepackground</a>
                     <a href="https://findpenguins.com/bikepackground" target="_blank" class="btn-blue">FindPenguins</a>
                 </div>
             </div>
@@ -349,10 +219,8 @@
                         <span class="region">(South America | High Altitude)</span>
                         <div class="toggle-icon">∨</div>
                     </summary>
-                    <div class="route-content">
-                        <p>Experience the thin air and endless horizons of the Andes High Plateau. Detailed route information for your high-altitude adventure.</p>
-                        <a href="#" target="_blank" class="btn-gaia">VIEW ON GAIAGPS</a>
-                    </div>
+                    <p>Logistical insights and terrain reports from the thin air of the Andes.</p>
+                    <a href="#" class="btn-gaia">VIEW ON GAIAGPS</a>
                 </details>
 
                 <details class="route-card">
@@ -361,31 +229,15 @@
                         <span class="region">(Russia | Winter Expedition)</span>
                         <div class="toggle-icon">∨</div>
                     </summary>
-                    <div class="route-content">
-                        <p>Crossing Lake Baikal on ice - a true winter expedition. Information on conditions, logistics, and necessary gear.</p>
-                        <a href="#" target="_blank" class="btn-gaia">VIEW ON GAIAGPS</a>
-                    </div>
-                </details>
-
-                <details class="route-card">
-                    <summary>
-                        <h3>Altay Nomad Trails</h3>
-                        <span class="region">(Central Asia | Remote Wilderness)</span>
-                        <div class="toggle-icon">∨</div>
-                    </summary>
-                    <div class="route-content">
-                        <p>Follow the ancient nomad trails through the stunning Altay region. Information on navigation, permits, and remote supplies.</p>
-                        <a href="#" target="_blank" class="btn-gaia">VIEW ON GAIAGPS</a>
-                    </div>
+                    <p>Details about crossing frozen Siberian lakes on two wheels.</p>
+                    <a href="#" class="btn-gaia">VIEW ON GAIAGPS</a>
                 </details>
 
             </div>
         </div>
     </section>
 
-    <footer class="container">
-        &copy; bikepackground &ndash; shared for your next adventure.
-    </footer>
+    <footer>&copy; bikepackground – shared for your next adventure.</footer>
 
 </body>
 </html>
