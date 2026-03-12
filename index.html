@@ -8,7 +8,7 @@
     <style>
         /* --- CSS STYLES --- */
         :root {
-            --primary-blue: #d8e8f0; /* Hellblau aus dem Screenshot */
+            --primary-blue: #d8e8f0; 
             --bg-light: #ffffff;
             --text-dark: #1a1a1a;
             --text-dim: #666666;
@@ -27,7 +27,6 @@
             -webkit-font-smoothing: antialiased;
         }
 
-        /* --- Container für sauberen Weißraum --- */
         .container {
             max-width: 1000px;
             margin: 0 auto;
@@ -49,10 +48,10 @@
 
         .hero h1 {
             font-family: var(--font-accent);
-            font-size: 5rem; /* Etwas größer für die Schreibschrift-Wirkung */
+            font-size: 5rem; 
             font-weight: 700;
             margin: 0;
-            text-transform: none; /* Schreibschrift wirkt ohne All-Caps besser */
+            text-transform: none; 
             text-shadow: 0 4px 15px rgba(0,0,0,0.5);
         }
 
@@ -66,7 +65,6 @@
             text-shadow: 0 2px 8px rgba(0,0,0,0.3);
         }
 
-        /* --- Allgemeine Sektions-Styles --- */
         section {
             padding: 80px 0;
         }
@@ -151,3 +149,311 @@
             border-radius: 5px;
             font-weight: 600;
             transition: opacity 0.3s ease;
+        }
+        .btn-blue:hover {
+            opacity: 0.8;
+        }
+
+        /* --- 3. ROUTES LEGACY --- */
+        .routes-legacy {
+            background-color: #f9f9f9; 
+            text-align: center;
+        }
+
+        .routes-legacy-intro {
+            text-align: center;
+            color: var(--text-dim);
+            max-width: 600px;
+            margin: 0 auto 60px auto;
+        }
+
+        .route-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); 
+            gap: 30px;
+        }
+
+        .route-card {
+            background-color: var(--primary-blue);
+            padding: 40px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            list-style: none; 
+            transition: transform 0.2s;
+        }
+
+        .route-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .route-card summary {
+            list-style: none;
+            outline: none;
+        }
+        .route-card summary::-webkit-details-marker { display: none; }
+
+        .route-card h3 {
+            margin: 0;
+            font-size: 1.1rem;
+            color: #000;
+            text-transform: uppercase;
+            line-height: 1.3;
+        }
+        .route-card .region {
+            display: block;
+            margin-top: 10px;
+            font-size: 0.85rem;
+            color: #333;
+            font-weight: 600;
+        }
+
+        .toggle-icon {
+            background: var(--accent-orange);
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 15px auto;
+            font-size: 0.8rem;
+            transition: transform 0.3s ease;
+        }
+
+        .route-card[open] .toggle-icon {
+            transform: rotate(180deg);
+        }
+
+        .route-content {
+            color: var(--text-dim);
+            font-size: 0.95rem;
+            padding: 15px 0;
+            text-align: left;
+            animation: fadeIn 0.4s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .btn-gaia {
+            background: white;
+            color: black;
+            padding: 10px 20px;
+            text-decoration: none;
+            font-weight: 800;
+            border: 1px solid #ccc;
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            transition: background 0.3s ease;
+        }
+        .btn-gaia:hover {
+            background-color: #f0f0f0;
+        }
+
+        /* --- Footer --- */
+        footer {
+            text-align: center;
+            padding: 60px 0;
+            font-size: 0.85rem;
+            color: #666;
+            border-top: 1px solid #eee;
+        }
+        .footer-address {
+            margin-bottom: 10px;
+            color: var(--text-dark);
+            font-weight: 600;
+        }
+        .footer-disclaimer {
+            font-size: 0.75rem;
+            color: #999;
+            max-width: 600px;
+            margin: 10px auto 0 auto;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 3.5rem; }
+            .hero { height: 60vh; }
+            .container { padding: 0 20px; }
+            section { padding: 60px 0; }
+            .family-shift { flex-direction: column; text-align: center; gap: 0; }
+            .family-content { margin-bottom: 60px; }
+            .family-content h2 { text-align: center; }
+            .button-group { justify-content: center; }
+            .family-image-container { max-width: 300px; width: 100%; margin: 0 auto; flex-shrink: 0; }
+            .family-image { width: 100%; height: auto; aspect-ratio: 1/1; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="hero">
+        <div class="hero-content container">
+            <h1>Explore The PackGround</h1>
+            <p class="hero-text">
+                A handpicked collection of bikepacking routes by Brigitte & Ivo
+            </p>
+        </div>
+    </header>
+
+    <section class="container">
+        <div class="family-shift">
+            <div class="family-content">
+                <h2>The Family Shift</h2>
+                <p>
+                    For years, this was the home of our travel website, documenting over seven years of life on the road. While our long-term solo rides <a href="https://new.spotwalla.com/trip/788b-5f49c-4a09/view?homeActive=1&showAll=1" target="_blank" class="text-link">spanned 2009–2019</a>, we have been traveling as a family of four with our twins since 2020. Though we no longer maintain a full-scale website, you can still find stories and short updates here:
+                </p>
+                <div class="button-group">
+                    <a href="https://www.instagram.com/bikepackground" target="_blank" class="btn-blue">Instagram</a>
+                    <a href="https://findpenguins.com/bikepackground" target="_blank" class="btn-blue">FindPenguins</a>
+                </div>
+                
+            </div>
+            <div class="family-image-container">
+                <div class="deco-circle deco-circle-1"></div>
+                <div class="family-image"></div>
+                <div class="deco-circle deco-circle-2"></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="routes" class="routes-legacy">
+        <div class="container">
+            <h2>GAIAGPS ROUTES LEGACY</h2>
+            <p class="routes-legacy-intro">
+                For those planning their own trips, the route descriptions found below remain as our legacy of a wild time out there.
+            </p>
+        
+            <div class="route-grid">
+                
+                <details class="route-card">
+                    <summary>
+                        <h3>Altay Quest: Borderland of Mongolia and Russia</h3>
+                        <span class="region">(Central Asia | Remote Wilderness)</span>
+                        <div class="toggle-icon">∨</div>
+                    </summary>
+                    <div class="route-content">
+                        <p>A demanding journey crossing two national parks and a UNESCO site. Linking the Mongolian and Russian Altay via ancient nomad paths and the mystical Ukok Plateau. Expect steep gradients and trailless hike-a-bike passes.</p>
+                        <a href="https://www.gaiagps.com/public/F1HjKV7V0q6huGWdlTOr6QDg/" target="_blank" class="btn-gaia">VIEW ON GAIAGPS</a>
+                    </div>
+                </details>
+
+                <details class="route-card">
+                    <summary>
+                        <h3>Bike Baikal: Winter Bikepacking in Siberia</h3>
+                        <span class="region">(Russia | Winter Expedition)</span>
+                        <div class="toggle-icon">∨</div>
+                    </summary>
+                    <div class="route-content">
+                        <p>An expedition across the world’s second-largest freshwater lake in brutal Siberian winter. Ride over meter-thick black ice, navigate pressure ridges, and endure temperatures down to -30°C.</p>
+                        <a href="https://www.gaiagps.com/public/Bld2Zq3rAL5KQHMe7bopkfxN/" target="_blank" class="btn-gaia">VIEW ON GAIAGPS</a>
+                    </div>
+                </details>
+
+                <details class="route-card">
+                    <summary>
+                        <h3>High Atlas Divide: Morocco Challenge</h3>
+                        <span class="region">(Africa | Mountain Culture)</span>
+                        <div class="toggle-icon">∨</div>
+                    </summary>
+                    <div class="route-content">
+                        <p>Traveling back in time through the ancestral home of the Berbers. This connoisseur’s route crosses the range four times and conquers ten major passes via ancient mule tracks and rugged dirt paths.</p>
+                        <a href="https://www.gaiagps.com/public/JjKjl887ovCcJ7sXCsTFZtUG/" target="_blank" class="btn-gaia">VIEW ON GAIAGPS</a>
+                    </div>
+                </details>
+
+                <details class="route-card">
+                    <summary>
+                        <h3>Illampu Circuit: Bikepacking Version</h3>
+                        <span class="region">(Bolivia | High Altitude)</span>
+                        <div class="toggle-icon">∨</div>
+                    </summary>
+                    <div class="route-content">
+                        <p>One of the most spectacular glacier tracks in the Andes. A wild loop circumnavigating the mighty Illampu (6,368m), featuring high-altitude passes over 5,000 meters in the Cordillera Real.</p>
+                        <a href="https://www.gaiagps.com/public/NDTPOQYQiHyf93shdMPq6Uq4/" target="_blank" class="btn-gaia">VIEW ON GAIAGPS</a>
+                    </div>
+                </details>
+
+                <details class="route-card">
+                    <summary>
+                        <h3>Desert Spoor: Jordan and Israel</h3>
+                        <span class="region">(Middle East | Desert Singletrack)</span>
+                        <div class="toggle-icon">∨</div>
+                    </summary>
+                    <div class="route-content">
+                        <p>A journey through rusty red dunes and deep-cut wadis. Features 300 kilometers of world-class, purpose-built singletrack on the Israel Bike Trail through the profound silence of the Negev.</p>
+                        <a href="https://www.gaiagps.com/public/ieBV28BKwH8lZWKNOKlgb9Qe/" target="_blank" class="btn-gaia">VIEW ON GAIAGPS</a>
+                    </div>
+                </details>
+
+                <details class="route-card">
+                    <summary>
+                        <h3>Nomad Trails: Mongolia</h3>
+                        <span class="region">(Central Asia | Infinite Horizons)</span>
+                        <div class="toggle-icon">∨</div>
+                    </summary>
+                    <div class="route-content">
+                        <p>A bikepacking paradise of vast steppe and rugged mountains. Experience a country where nomadic culture is life, navigating an infinite network of dirt tracks through magical light and angry winds.</p>
+                        <a href="https://www.gaiagps.com/public/NqtbrasThqKIXRyojIbrqr9d/" target="_blank" class="btn-gaia">VIEW ON GAIAGPS</a>
+                    </div>
+                </details>
+
+                <details class="route-card">
+                    <summary>
+                        <h3>Pioneer Trail: USA Wild West Wonders</h3>
+                        <span class="region">(USA | Desert Landscapes)</span>
+                        <div class="toggle-icon">∨</div>
+                    </summary>
+                    <div class="route-content">
+                        <p>Discover Utah’s slot canyons and rock formations off the beaten path. Traverses the Grand Staircase-Escalante and Capitol Reef, concluding in the hidden gem of Lockhart Basin near Moab.</p>
+                        <a href="https://www.gaiagps.com/public/KfT341Zfw8hYm1cPV95xeuhk/" target="_blank" class="btn-gaia">VIEW ON GAIAGPS</a>
+                    </div>
+                </details>
+
+                <details class="route-card">
+                    <summary>
+                        <h3>Puna Loop: Northwest Argentina</h3>
+                        <span class="region">(South America | High Mountain Desert)</span>
+                        <div class="toggle-icon">∨</div>
+                    </summary>
+                    <div class="route-content">
+                        <p>A gargantuan lunar landscape of stone, sand, and salt lakes. Experience the raw beauty of the Andes Puna, where volcanic cones cast long shadows and the solitude is as deep as the silence.</p>
+                        <a href="https://www.gaiagps.com/public/SO50AOfMKBMawtUPQput5teq/" target="_blank" class="btn-gaia">VIEW ON GAIAGPS</a>
+                    </div>
+                </details>
+
+                <details class="route-card">
+                    <summary>
+                        <h3>The Yak Track: Eastern Tibet</h3>
+                        <span class="region">(Asia | High Plateau Culture)</span>
+                        <div class="toggle-icon">∨</div>
+                    </summary>
+                    <div class="route-content">
+                        <p>Traversing the historic provinces of Kham and Amdo. Over twenty passes exceeding 4,000m, connecting remote monasteries and Khampa nomad camps via ancient hiking trails and dirt roads.</p>
+                        <a href="https://www.gaiagps.com/public/trjjP0koQC9lEasOr5kNnUU2/" target="_blank" class="btn-gaia">VIEW ON GAIAGPS</a>
+                    </div>
+                </details>
+
+            </div>
+        </div>
+    </section>
+
+    <footer class="container">
+        <div class="footer-address">
+            Brigitte & Ivo Jost &bull; Hauptstrasse 82 &bull; 3854 Oberried &bull; Switzerland
+        </div>
+        <div>
+            &copy; bikepackground &ndash; shared for your next adventure.
+        </div>
+        <div class="footer-disclaimer">
+            Hinweis: Wir übernehmen keine Haftung für die Inhalte externer Links.
+        </div>
+    </footer>
+
+</body>
+</html>
