@@ -162,9 +162,18 @@
 
         .routes-legacy-intro {
             text-align: center;
-            color: var(--text-dim);
-            max-width: 600px;
+            color: var(--text-dark); /* Geändert auf Schwarz */
+            max-width: 650px;
             margin: 0 auto 60px auto;
+            font-size: 1.05rem;
+        }
+
+        .signature {
+            font-family: var(--font-accent);
+            font-size: 1.8rem;
+            color: var(--text-dark);
+            display: block;
+            margin-top: 10px;
         }
 
         .route-grid {
@@ -259,17 +268,19 @@
         /* --- Footer --- */
         footer {
             text-align: center;
-            padding: 60px 0; /* Sorgt für vertikalen Abstand zum Inhalt */
+            margin-top: 100px; 
+            padding: 60px 0 120px 0; 
             font-size: 0.85rem;
             color: var(--text-dark);
             border-top: 1px solid #eee;
         }
+
         .footer-subtext {
             font-size: 0.75rem;
             color: #aaa;
             max-width: 600px;
-            margin: 10px auto 0 auto;
-            line-height: 1.5;
+            margin: 15px auto 0 auto;
+            line-height: 1.6;
         }
 
         @media (max-width: 768px) {
@@ -283,7 +294,7 @@
             .button-group { justify-content: center; }
             .family-image-container { max-width: 300px; width: 100%; margin: 0 auto; flex-shrink: 0; }
             .family-image { width: 100%; height: auto; aspect-ratio: 1/1; }
-            footer { padding: 40px 20px; } /* Etwas reduzierter, aber deutlicher Abstand auf Mobile */
+            footer { margin-top: 60px; padding: 40px 20px 80px 20px; }
         }
     </style>
 </head>
@@ -293,7 +304,7 @@
         <div class="hero-content container">
             <h1>Explore The PackGround</h1>
             <p class="hero-text">
-                A handpicked collection of bikepacking routes by Brigitte & Ivo
+                A handpicked collection of bikepacking routes
             </p>
         </div>
     </header>
@@ -323,7 +334,8 @@
         <div class="container">
             <h2>GAIAGPS ROUTES LEGACY</h2>
             <p class="routes-legacy-intro">
-                For those planning their own trips, the route descriptions found below remain as our legacy of a wild time out there.
+                For those planning their own trips, the route descriptions found below remain as our legacy of a wild time out there. Enjoy!
+                <span class="signature">Brigitte & Ivo</span>
             </p>
         
             <div class="route-grid">
@@ -440,7 +452,7 @@
         </div>
     </section>
 
-        <footer class="container">
+    <footer class="container">
         <div>
             &copy; bikepackground &ndash; shared for your next adventure.
         </div>
@@ -448,7 +460,6 @@
             <a href="legal.html" style="color: inherit; text-decoration: underline;">Imprint & Privacy</a>
         </div>
     </footer>
-
 
 </body>
 </html>
