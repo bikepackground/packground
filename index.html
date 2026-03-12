@@ -58,12 +58,10 @@
         .hero-text {
             color: white;
             font-family: var(--font-main);
-            font-size: 0.95rem;
-            margin: 20px auto;
-            max-width: 700px;
+            font-size: 1.1rem;
+            margin: 15px 0;
             text-transform: uppercase;
             letter-spacing: 2px;
-            line-height: 1.4;
             text-shadow: 0 2px 8px rgba(0,0,0,0.3);
         }
 
@@ -261,21 +259,17 @@
         /* --- Footer --- */
         footer {
             text-align: center;
-            padding: 60px 0;
+            padding: 60px 0; /* Sorgt für vertikalen Abstand zum Inhalt */
             font-size: 0.85rem;
-            color: #666;
+            color: var(--text-dark);
             border-top: 1px solid #eee;
         }
-        .footer-address {
-            margin-bottom: 10px;
-            color: #999;
-            font-weight: 400;
-        }
-        .footer-disclaimer {
+        .footer-subtext {
             font-size: 0.75rem;
             color: #aaa;
             max-width: 600px;
             margin: 10px auto 0 auto;
+            line-height: 1.5;
         }
 
         @media (max-width: 768px) {
@@ -289,6 +283,7 @@
             .button-group { justify-content: center; }
             .family-image-container { max-width: 300px; width: 100%; margin: 0 auto; flex-shrink: 0; }
             .family-image { width: 100%; height: auto; aspect-ratio: 1/1; }
+            footer { padding: 40px 20px; } /* Etwas reduzierter, aber deutlicher Abstand auf Mobile */
         }
     </style>
 </head>
@@ -298,7 +293,7 @@
         <div class="hero-content container">
             <h1>Explore The PackGround</h1>
             <p class="hero-text">
-                A handpicked collection of bikepacking routes by Brigitte & Ivo - shared for your next adventure
+                A handpicked collection of bikepacking routes by Brigitte & Ivo
             </p>
         </div>
     </header>
@@ -446,13 +441,11 @@
     </section>
 
     <footer class="container">
-        <div class="footer-address">
-            Brigitte & Ivo Jost &bull; Hauptstrasse 82 &bull; 3854 Oberried &bull; Switzerland
-        </div>
         <div>
-            &copy; bikepackground &ndash; all rights reserved.
+            &copy; bikepackground &ndash; shared for your next adventure.
         </div>
-        <div class="footer-disclaimer">
+        <div class="footer-subtext">
+            Brigitte & Ivo Jost &bull; Hauptstrasse 82 &bull; 3854 Oberried &bull; Switzerland<br>
             Disclaimer: We assume no liability for the content of external links.
         </div>
     </footer>
