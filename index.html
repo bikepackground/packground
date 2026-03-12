@@ -100,7 +100,8 @@
             align-items: center;
         }
 
-        .text-link {
+        /* KORREKTUR: Link-States für konsistente Farben */
+        .text-link, .text-link:visited {
             color: var(--accent-orange);
             text-decoration: none;
             font-weight: 800; 
@@ -108,9 +109,10 @@
             transition: all 0.3s ease;
         }
 
-        .text-link:hover {
+        .text-link:hover, .text-link:active {
             color: #a0c4d6; 
             border-bottom: 2px solid #a0c4d6;
+            text-decoration: none;
         }
 
         .family-image {
@@ -257,7 +259,7 @@
             text-decoration: none;
             font-weight: 800;
             border: none;
-            border-radius: 8px; /* Abgerundet wie der Toggle/Social Buttons */
+            border-radius: 8px; 
             display: block;
             text-align: center;
             margin-top: 15px;
@@ -267,14 +269,14 @@
             line-height: 1.4;
         }
         .btn-gaia:hover {
-            background-color: #d35400; /* Etwas dunklerer Orange-Ton beim Hover */
+            background-color: #d35400;
         }
 
         .btn-subtext {
             display: block;
             font-size: 0.65rem;
             font-weight: 400;
-            color: rgba(255, 255, 255, 0.8); /* Hellgrau-weiß für Lesbarkeit auf Orange */
+            color: rgba(255, 255, 255, 0.8); 
             text-transform: none; 
             margin-top: 2px;
         }
@@ -283,11 +285,9 @@
         .site-footer {
             text-align: center;
             border-top: 1px solid #eee;
-            margin-top: 150px;      
-            padding: 100px 0 150px 0; 
+            padding: 40px 0 60px 0; 
             font-size: 0.85rem;
             color: var(--text-dark);
-            width: 100%;
             background-color: var(--bg-light);
         }
 
@@ -295,7 +295,7 @@
             font-size: 0.75rem;
             color: #aaa;
             max-width: 600px;
-            margin: 20px auto 0 auto;
+            margin: 10px auto 0 auto;
             line-height: 1.6;
         }
 
@@ -319,8 +319,7 @@
             .route-grid { grid-template-columns: 1fr; }
             
             .site-footer { 
-                margin-top: 100px; 
-                padding: 80px 20px 120px 20px; 
+                padding: 40px 20px 40px 20px; 
             }
         }
     </style>
@@ -419,7 +418,7 @@
                         <div class="toggle-icon">∨</div>
                     </summary>
                     <div class="route-content">
-                        <p>One of the most spectacular glacier tracks in the Andes. A wild loop circumnavigating the mighty Illampu (6,368m), featuring high-altitude passes over 5,090 meters.</p>
+                        <p>One of the most spectacular glacier tracks in the Andes. A wild loop circumnavigations the mighty Illampu (6,368m), featuring high-altitude passes over 5,090 meters.</p>
                         <a href="https://www.gaiagps.com/public/NDTPOQYQiHyf93shdMPq6Uq4/" target="_blank" class="btn-gaia">
                             VIEW ON GAIAGPS
                             <span class="btn-subtext">Find full route description in the notes section</span>
