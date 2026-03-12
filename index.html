@@ -251,12 +251,13 @@
         }
 
         .btn-gaia {
-            background: white;
-            color: black;
+            background: var(--accent-orange);
+            color: white;
             padding: 12px 15px;
             text-decoration: none;
             font-weight: 800;
-            border: 1px solid #ccc;
+            border: none;
+            border-radius: 8px; /* Abgerundet wie der Toggle/Social Buttons */
             display: block;
             text-align: center;
             margin-top: 15px;
@@ -266,28 +267,28 @@
             line-height: 1.4;
         }
         .btn-gaia:hover {
-            background-color: #f0f0f0;
+            background-color: #d35400; /* Etwas dunklerer Orange-Ton beim Hover */
         }
 
         .btn-subtext {
             display: block;
             font-size: 0.65rem;
             font-weight: 400;
-            color: #888;
-            text-transform: none; /* Kein Uppercase für den Hinweis */
+            color: rgba(255, 255, 255, 0.8); /* Hellgrau-weiß für Lesbarkeit auf Orange */
+            text-transform: none; 
             margin-top: 2px;
         }
 
-        /* --- Footer --- */
-        footer {
+        /* --- 4. FOOTER --- */
+        .site-footer {
             text-align: center;
             border-top: 1px solid #eee;
-            margin-top: 120px; 
-            padding-top: 80px; 
-            padding-bottom: 180px; 
+            margin-top: 150px;      
+            padding: 100px 0 150px 0; 
             font-size: 0.85rem;
             color: var(--text-dark);
-            display: block;
+            width: 100%;
+            background-color: var(--bg-light);
         }
 
         .footer-subtext {
@@ -317,10 +318,9 @@
             
             .route-grid { grid-template-columns: 1fr; }
             
-            footer { 
-                margin-top: 80px; 
-                padding-top: 50px; 
-                padding-bottom: 120px; 
+            .site-footer { 
+                margin-top: 100px; 
+                padding: 80px 20px 120px 20px; 
             }
         }
     </style>
@@ -506,7 +506,7 @@
         </div>
     </section>
 
-    <footer class="container">
+    <footer class="site-footer">
         <div>
             &copy; bikepackground &ndash; shared for your next adventure.
         </div>
