@@ -27,6 +27,7 @@
             --text-dim: #666666;
             --accent-orange: #e67e22; 
             --font-main: 'Inter', sans-serif;
+            /* OPTIMIERUNG: Fallback-Schriften für Caveat gegen Springen (FOUT) */
             --font-accent: 'Caveat', "Apple Chancery", "Segoe Script", cursive;
         }
 
@@ -48,7 +49,8 @@
 
         /* --- 1. Header (Hero) --- */
         .hero {
-            background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)), url('hero-bikepacking.JPG'); 
+            /* OPTIMIERUNG: Abdunkelung reduziert */
+            background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.4)), url('hero-bikepacking.JPG'); 
             background-size: cover;
             background-position: center;
             height: 80vh; 
@@ -78,7 +80,9 @@
             text-shadow: 0 2px 8px rgba(0,0,0,0.3);
         }
 
-        section { padding: 80px 0; }
+        section {
+            padding: 80px 0;
+        }
 
         h2 {
             text-align: center;
@@ -94,8 +98,14 @@
             gap: 60px;
         }
 
-        .family-content { flex: 1; }
-        .family-content h2 { text-align: left; margin-bottom: 20px; }
+        .family-content {
+            flex: 1;
+        }
+
+        .family-content h2 {
+            text-align: left; 
+            margin-bottom: 20px;
+        }
 
         .family-image-container {
             flex: 1;
@@ -113,9 +123,10 @@
             transition: all 0.3s ease;
         }
 
-        .text-link:hover {
+        .text-link:hover, .text-link:active {
             color: #a0c4d6; 
             border-bottom: 2px solid #a0c4d6;
+            text-decoration: none;
         }
 
         .family-image {
@@ -134,16 +145,18 @@
             position: absolute;
             background-color: var(--primary-blue);
             border-radius: 50%;
+            opacity: 1;
             z-index: 1;
         }
-        /* OPTIMIERUNG: Oberer Kreis (1) tiefer geschoben für mehr Überlappung mit dem Hero-Bild (Normalansicht) */
-        .deco-circle-1 { width: 120px; height: 120px; top: 35px; left: 25px; }
+        .deco-circle-1 { width: 120px; height: 120px; top: -15px; left: 25px; }
         .deco-circle-2 { width: 180px; height: 180px; bottom: -35px; right: 15px; }
 
         .button-group {
             display: flex;
             gap: 15px;
             margin-top: 30px;
+            /* OPTIMIERUNG: Mehr Platz nach unten in regulärer Ansicht */
+            margin-bottom: 50px; 
         }
 
         .btn-blue {
@@ -159,14 +172,8 @@
             text-transform: uppercase;
             line-height: 1.4;
         }
-
-        .btn-subtext {
-            display: block;
-            font-size: 0.65rem;
-            font-weight: 400;
-            color: var(--text-dim);
-            text-transform: none; 
-            margin-top: 2px;
+        .btn-blue:hover {
+            opacity: 0.8;
         }
 
         /* --- 3. ROUTES LEGACY --- */
@@ -209,9 +216,14 @@
             justify-content: space-between;
         }
 
-        .route-card:hover { transform: translateY(-5px); }
+        .route-card:hover {
+            transform: translateY(-5px);
+        }
 
-        .route-card summary { list-style: none; outline: none; }
+        .route-card summary {
+            list-style: none;
+            outline: none;
+        }
         .route-card summary::-webkit-details-marker { display: none; }
 
         .route-card h3 {
@@ -243,7 +255,9 @@
             transition: transform 0.3s ease;
         }
 
-        .route-card[open] .toggle-icon { transform: rotate(180deg); }
+        .route-card[open] .toggle-icon {
+            transform: rotate(180deg);
+        }
 
         .route-content {
             color: var(--text-dim);
@@ -264,6 +278,7 @@
             padding: 12px 15px;
             text-decoration: none;
             font-weight: 800;
+            border: none;
             border-radius: 8px; 
             display: block;
             text-align: center;
@@ -271,9 +286,25 @@
             font-size: 0.75rem;
             text-transform: uppercase;
             transition: background 0.3s ease;
+            line-height: 1.4;
+        }
+        .btn-gaia:hover {
+            background-color: #d35400;
         }
 
-        /* --- 4. FOOTER --- */
+        .btn-subtext {
+            display: block;
+            font-size: 0.65rem;
+            font-weight: 400;
+            color: rgba(255, 255, 255, 0.8); 
+            text-transform: none; 
+            margin-top: 2px;
+        }
+        
+        .btn-blue .btn-subtext {
+            color: var(--text-dim);
+        }
+
         .site-footer {
             text-align: center;
             border-top: 1px solid #eee;
@@ -288,30 +319,30 @@
             color: #aaa;
             max-width: 600px;
             margin: 10px auto 0 auto;
+            line-height: 1.6;
         }
 
-        /* --- RESPONSIVE DESIGN --- */
         @media (max-width: 992px) {
             .route-grid { grid-template-columns: repeat(2, 1fr); }
         }
 
         @media (max-width: 768px) {
+            .hero h1 { font-size: 3.5rem; }
+            /* OPTIMIERUNG: Bildausschnitt Handy verbessert (Fahrer unter Text) */
             .hero { 
                 height: 75vh; 
-                /* OPTIMIERUNG: Bildausschnitt Handy verschoben (Radfahrer unter Text) */
-                background-position: 22% 85%; 
+                background-position: 22% 85%;
             }
-            .hero h1 { font-size: 3.5rem; }
             .container { padding: 0 20px; }
             section { padding: 60px 0; }
             .family-shift { flex-direction: column; text-align: center; gap: 0; }
             .family-content { margin-bottom: 60px; }
             .family-content h2 { text-align: center; }
-            .button-group { justify-content: center; }
-            .family-image-container { max-width: 300px; width: 100%; margin: 0 auto; }
+            .button-group { justify-content: center; margin-bottom: 20px; }
+            .family-image-container { max-width: 300px; width: 100%; margin: 0 auto; flex-shrink: 0; }
             .family-image { width: 100%; height: auto; aspect-ratio: 1/1; }
             .route-grid { grid-template-columns: 1fr; }
-            .site-footer { padding: 40px 20px; }
+            .site-footer { padding: 40px 20px 40px 20px; }
         }
     </style>
 </head>
@@ -319,7 +350,7 @@
 
     <header class="hero">
         <div class="hero-content container">
-            <h1>Explore The PackGround</h1>
+            <h1>Explore the PackGround</h1>
             <p class="hero-text">
                 A handpicked collection of bikepacking routes
             </p>
@@ -343,6 +374,7 @@
                         <span class="btn-subtext">FindPenguins</span>
                     </a>
                 </div>
+                
             </div>
             <div class="family-image-container">
                 <div class="deco-circle deco-circle-1"></div>
@@ -354,126 +386,157 @@
 
     <section id="routes" class="routes-legacy">
         <div class="container">
-            <h2>CRAZY STUFF</h2>
+            <h2>LEGACY FOR EXPERTS</h2>
             <p class="routes-legacy-intro">
                 For those planning their own adventures, the route descriptions found below remain as our legacy of a wild time out there. Enjoy!
                 <span class="signature">Brigitte & Ivo</span>
             </p>
         
             <div class="route-grid">
+                
                 <details class="route-card">
                     <summary>
-                        <h3>ALTAY QUEST: MONGOLIA AND RUSSIA</h3>
-                        <span class="route-stats">(630 km | 9,600 m)</span>
+                        <h3>ALTAY QUEST: BIKEPACKING IN THE BORDERLAND OF MONGOLIA AND RUSSIA</h3>
+                        <span class="route-stats">(Mongolia & Russia | 630 km | 9,600 m)</span>
                         <div class="toggle-icon">∨</div>
                     </summary>
                     <div class="route-content">
-                        <p>A demanding journey crossing two national parks and the mystical Ukok Plateau.</p>
-                        <a href="https://www.gaiagps.com/public/F1HjKV7V0q6huGWdlTOr6QDg/" target="_blank" class="btn-gaia">VIEW ON GAIAGPS</a>
+                        <p>A demanding journey crossing two national parks and a UNESCO site. Linking the Mongolian and Russian Altay via ancient nomad paths and the mystical Ukok Plateau. Expect steep gradients and trailless hike-a-bike passes.</p>
+                        <a href="https://www.gaiagps.com/public/F1HjKV7V0q6huGWdlTOr6QDg/" target="_blank" class="btn-gaia">
+                            VIEW ON GAIAGPS
+                            <span class="btn-subtext">Find full route description in the notes section</span>
+                        </a>
                     </div>
                 </details>
 
                 <details class="route-card">
                     <summary>
-                        <h3>BIKE BAIKAL: SIBERIA</h3>
-                        <span class="route-stats">(650 km | 1,200 m)</span>
+                        <h3>BIKE BAIKAL: WINTER BIKEPACKING IN SIBERIA</h3>
+                        <span class="route-stats">(Russia | 650 km | 1,200 m)</span>
                         <div class="toggle-icon">∨</div>
                     </summary>
                     <div class="route-content">
-                        <p>An expedition across the world’s second-largest freshwater lake in brutal winter.</p>
-                        <a href="https://www.gaiagps.com/public/Bld2Zq3rAL5KQHMe7bopkfxN/" target="_blank" class="btn-gaia">VIEW ON GAIAGPS</a>
+                        <p>An expedition across the world’s second-largest freshwater lake in brutal Siberian winter. Ride over meter-thick black ice, navigate pressure ridges, and endure temperatures down to -30°C.</p>
+                        <a href="https://www.gaiagps.com/public/Bld2Zq3rAL5KQHMe7bopkfxN/" target="_blank" class="btn-gaia">
+                            VIEW ON GAIAGPS
+                            <span class="btn-subtext">Find full route description in the notes section</span>
+                        </a>
                     </div>
                 </details>
 
                 <details class="route-card">
                     <summary>
-                        <h3>HIGH ATLAS DIVIDE: MOROCCO</h3>
-                        <span class="route-stats">(850 km | 18,500 m)</span>
+                        <h3>HIGH ATLAS DIVIDE: BIKEPACKING CHALLENGE IN MOROCCO</h3>
+                        <span class="route-stats">(Morocco | 850 km | 18,500 m)</span>
                         <div class="toggle-icon">∨</div>
                     </summary>
                     <div class="route-content">
-                        <p>Traveling back in time through the ancestral home of the Berbers.</p>
-                        <a href="https://www.gaiagps.com/public/JjKjl887ovCcJ7sXCsTFZtUG/" target="_blank" class="btn-gaia">VIEW ON GAIAGPS</a>
+                        <p>Traveling back in time through the ancestral home of the Berbers. This connoisseur’s route crosses the range four times and conquers ten major passes via ancient mule tracks.</p>
+                        <a href="https://www.gaiagps.com/public/JjKjl887ovCcJ7sXCsTFZtUG/" target="_blank" class="btn-gaia">
+                            VIEW ON GAIAGPS
+                            <span class="btn-subtext">Find full route description in the notes section</span>
+                        </a>
                     </div>
                 </details>
 
                 <details class="route-card">
                     <summary>
-                        <h3>ILLAMPU CIRCUIT: BOLIVIA</h3>
-                        <span class="route-stats">(150 km | 4,200 m)</span>
+                        <h3>ILLAMPU CIRCUIT: BIKEPACKING VERSION</h3>
+                        <span class="route-stats">(Bolivia | 150 km | 4,200 m)</span>
                         <div class="toggle-icon">∨</div>
                     </summary>
                     <div class="route-content">
-                        <p>One of the most spectacular glacier tracks in the Andes.</p>
-                        <a href="https://www.gaiagps.com/public/NDTPOQYQiHyf93shdMPq6Uq4/" target="_blank" class="btn-gaia">VIEW ON GAIAGPS</a>
+                        <p>One of the most spectacular glacier tracks in the Andes. A wild loop circumnavigations the mighty Illampu (6,368m), featuring high-altitude passes over 5,090 meters.</p>
+                        <a href="https://www.gaiagps.com/public/NDTPOQYQiHyf93shdMPq6Uq4/" target="_blank" class="btn-gaia">
+                            VIEW ON GAIAGPS
+                            <span class="btn-subtext">Find full route description in the notes section</span>
+                        </a>
                     </div>
                 </details>
 
                 <details class="route-card">
                     <summary>
-                        <h3>DESERT SPOOR: JORDAN & ISRAEL</h3>
-                        <span class="route-stats">(950 km | 12,500 m)</span>
+                        <h3>DESERT SPOOR: BIKEPACKING IN JORDAN AND ISRAEL</h3>
+                        <span class="route-stats">(Jordan & Israel | 950 km | 12,500 m)</span>
                         <div class="toggle-icon">∨</div>
                     </summary>
                     <div class="route-content">
-                        <p>A journey through rusty red dunes and world-class singletrack.</p>
-                        <a href="https://www.gaiagps.com/public/ieBV28BKwH8lZWKNOKlgb9Qe/" target="_blank" class="btn-gaia">VIEW ON GAIAGPS</a>
+                        <p>A journey through rusty red dunes and deep-cut wadis. Features 300 kilometers of world-class, purpose-built singletrack on the Israel Bike Trail through the profound silence of the Negev.</p>
+                        <a href="https://www.gaiagps.com/public/ieBV28BKwH8lZWKNOKlgb9Qe/" target="_blank" class="btn-gaia">
+                            VIEW ON GAIAGPS
+                            <span class="btn-subtext">Find full route description in the notes section</span>
+                        </a>
                     </div>
                 </details>
 
                 <details class="route-card">
                     <summary>
-                        <h3>NOMAD TRAILS: MONGOLIA</h3>
-                        <span class="route-stats">(1,200 km | 14,000 m)</span>
+                        <h3>NOMAD TRAILS: BIKEPACKING ROUTES MONGOLIA</h3>
+                        <span class="route-stats">(Mongolia | 1,200 km | 14,000 m)</span>
                         <div class="toggle-icon">∨</div>
                     </summary>
                     <div class="route-content">
-                        <p>Experience a country where nomadic culture is life.</p>
-                        <a href="https://www.gaiagps.com/public/NqtbrasThqKIXRyojIbrqr9d/" target="_blank" class="btn-gaia">VIEW ON GAIAGPS</a>
+                        <p>A bikepacking paradise of vast steppe and rugged mountains. Experience a country where nomadic culture is life, navigating an infinite network of dirt tracks through magical light.</p>
+                        <a href="https://www.gaiagps.com/public/NqtbrasThqKIXRyojIbrqr9d/" target="_blank" class="btn-gaia">
+                            VIEW ON GAIAGPS
+                            <span class="btn-subtext">Find full route description in the notes section</span>
+                        </a>
                     </div>
                 </details>
 
                 <details class="route-card">
                     <summary>
-                        <h3>PIONEER TRAIL: USA</h3>
-                        <span class="route-stats">(680 km | 8,200 m)</span>
+                        <h3>PIONEER TRAIL: BIKEPACKING THE WILD WEST WONDERS OF THE USA</h3>
+                        <span class="route-stats">(USA | 680 km | 8,200 m)</span>
                         <div class="toggle-icon">∨</div>
                     </summary>
                     <div class="route-content">
-                        <p>Discover Utah’s slot canyons and rock formations off the beaten path.</p>
-                        <a href="https://www.gaiagps.com/public/KfT341Zfw8hYm1cPV95xeuhk/" target="_blank" class="btn-gaia">VIEW ON GAIAGPS</a>
+                        <p>Discover Utah’s slot canyons and rock formations off the beaten path. Traverses the Grand Staircase-Escalante and Capitol Reef, concluding in the world-famous slickrock of Moab.</p>
+                        <a href="https://www.gaiagps.com/public/KfT341Zfw8hYm1cPV95xeuhk/" target="_blank" class="btn-gaia">
+                            VIEW ON GAIAGPS
+                            <span class="btn-subtext">Find full route description in the notes section</span>
+                        </a>
                     </div>
                 </details>
 
                 <details class="route-card">
                     <summary>
-                        <h3>PUNA LOOP: ARGENTINA</h3>
-                        <span class="route-stats">(720 km | 9,800 m)</span>
+                        <h3>PUNA LOOP: BIKEPACKING IN NORTHWEST ARGENTINA</h3>
+                        <span class="route-stats">(Argentina | 720 km | 9,800 m)</span>
                         <div class="toggle-icon">∨</div>
                     </summary>
                     <div class="route-content">
-                        <p>A gargantuan lunar landscape of stone and salt lakes.</p>
-                        <a href="https://www.gaiagps.com/public/SO50AOfMKBMawtUPQput5teq/" target="_blank" class="btn-gaia">VIEW ON GAIAGPS</a>
+                        <p>A gargantuan lunar landscape of stone and salt lakes. Experience the raw beauty of the Andes Puna, where volcanic cones cast long shadows and the solitude is as deep as the silence.</p>
+                        <a href="https://www.gaiagps.com/public/SO50AOfMKBMawtUPQput5teq/" target="_blank" class="btn-gaia">
+                            VIEW ON GAIAGPS
+                            <span class="btn-subtext">Find full route description in the notes section</span>
+                        </a>
                     </div>
                 </details>
 
                 <details class="route-card">
                     <summary>
-                        <h3>THE YAK TRACK: TIBET</h3>
-                        <span class="route-stats">(1,100 km | 16,500 m)</span>
+                        <h3>THE YAK TRACK: A BIKEPACKING ADVENTURE IN EASTERN TIBET</h3>
+                        <span class="route-stats">(Tibet/China | 1,100 km | 16,500 m)</span>
                         <div class="toggle-icon">∨</div>
                     </summary>
                     <div class="route-content">
-                        <p>Traversing the historic provinces of Kham and Amdo.</p>
-                        <a href="https://www.gaiagps.com/public/trjjP0koQC9lEasOr5kNnUU2/" target="_blank" class="btn-gaia">VIEW ON GAIAGPS</a>
+                        <p>Traversing the historic provinces of Kham and Amdo. Over twenty passes exceeding 4,000m, connecting remote monasteries and Khampa nomad camps via ancient hiking trails.</p>
+                        <a href="https://www.gaiagps.com/public/trjjP0koQC9lEasOr5kNnUU2/" target="_blank" class="btn-gaia">
+                            VIEW ON GAIAGPS
+                            <span class="btn-subtext">Find full route description in the notes section</span>
+                        </a>
                     </div>
                 </details>
+
             </div>
         </div>
     </section>
 
     <footer class="site-footer">
-        <div>&copy; bikepackground &ndash; shared for your next adventure.</div>
+        <div>
+            &copy; bikepackground &ndash; shared for your next adventure.
+        </div>
         <div class="footer-subtext">
             <a href="legal.html" style="color: inherit; text-decoration: underline;">Imprint & Privacy</a>
         </div>
