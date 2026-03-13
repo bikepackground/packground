@@ -225,7 +225,24 @@
             color: #000;
             text-transform: uppercase;
             line-height: 1.3;
+            margin-top: 15px; /* Platz für das Icon */
         }
+        
+        /* Neue CSS-Klasse für die Icons in den Kacheln */
+        .route-icon {
+            width: 50px;
+            height: 50px;
+            margin: 0 auto 15px auto; /* Zentriert über der Überschrift */
+            display: block;
+        }
+        
+        /* Die SVG-Pfade sollen die Textfarbe übernehmen */
+        .route-icon path,
+        .route-icon circle,
+        .route-icon rect {
+            fill: #000; /* Standardfarbe Schwarz für die Kacheln */
+        }
+
         .route-card .route-stats {
             display: block;
             margin-top: 10px;
@@ -317,7 +334,7 @@
             line-height: 1.6;
         }
 
-        /* --- RESPONSIVE DESIGN --- */
+        /* --- RESPONSIVE DESIGN (Handy & Tablet) --- */
         @media (max-width: 992px) {
             .route-grid { grid-template-columns: repeat(2, 1fr); }
         }
@@ -392,6 +409,10 @@
                 
                 <details class="route-card">
                     <summary>
+                        <svg class="route-icon" viewBox="0 0 100 100">
+                            <path d="M50,15 L90,55 L80,55 L80,85 L20,85 L20,55 L10,55 Z M50,25 C40,25 35,30 35,30 L65,30 C65,30 60,25 50,25 Z M30,60 L30,85 M70,60 L70,85 M45,65 L45,85 L55,85 L55,65 Z"/>
+                            <path d="M5,45 L15,35 L25,45 M75,45 L85,35 L95,45" stroke="#000" stroke-width="2" fill="none"/>
+                        </svg>
                         <h3>ALTAY QUEST: BIKEPACKING IN THE BORDERLAND OF MONGOLIA AND RUSSIA</h3>
                         <span class="route-stats">(Mongolia & Russia | 630 km | 9,600 m)</span>
                         <div class="toggle-icon">∨</div>
@@ -407,6 +428,12 @@
 
                 <details class="route-card">
                     <summary>
+                        <svg class="route-icon" viewBox="0 0 100 100">
+                            <circle cx="50" cy="50" r="40" stroke="#000" stroke-width="3" fill="none"/>
+                            <path d="M50,10 L50,90 M10,50 L90,50 M22,22 L78,78 M22,78 L78,22" stroke="#000" stroke-width="2.5"/>
+                            <circle cx="50" cy="50" r="10" fill="#000"/>
+                            <path d="M50,5 L50,15 M95,50 L85,50 M50,95 L50,85 M5,50 L15,50" stroke="#000" stroke-width="5" stroke-linecap="round"/>
+                        </svg>
                         <h3>BIKE BAIKAL: WINTER BIKEPACKING IN SIBERIA</h3>
                         <span class="route-stats">(Russia | 650 km | 1,200 m)</span>
                         <div class="toggle-icon">∨</div>
@@ -422,6 +449,10 @@
 
                 <details class="route-card">
                     <summary>
+                        <svg class="route-icon" viewBox="0 0 100 100">
+                            <path d="M10,80 L30,40 L50,60 L70,30 L90,80 Z" fill="#000"/>
+                            <path d="M10,80 L90,80 M20,80 L20,70 L30,70 L30,80 M45,80 L45,65 L55,65 L55,80 M70,80 L70,70 L80,70 L80,80" stroke="#000" stroke-width="3" fill="none"/>
+                        </svg>
                         <h3>HIGH ATLAS DIVIDE: BIKEPACKING CHALLENGE IN MOROCCO</h3>
                         <span class="route-stats">(Morocco | 850 km | 18,500 m)</span>
                         <div class="toggle-icon">∨</div>
@@ -437,6 +468,11 @@
 
                 <details class="route-card">
                     <summary>
+                        <svg class="route-icon" viewBox="0 0 100 100">
+                            <path d="M10,85 L50,15 L90,85 Z" fill="#eee" stroke="#000" stroke-width="2"/>
+                            <path d="M50,15 L35,45 L45,55 L50,50 L55,55 L65,45 Z" fill="#000"/>
+                            <path d="M15,20 C30,10 45,30 50,30 C55,30 70,10 85,20 L80,25 C70,18 55,35 50,35 C45,35 30,18 20,25 Z" fill="#000"/>
+                        </svg>
                         <h3>ILLAMPU CIRCUIT: BIKEPACKING VERSION</h3>
                         <span class="route-stats">(Bolivia | 150 km | 4,200 m)</span>
                         <div class="toggle-icon">∨</div>
@@ -452,6 +488,11 @@
 
                 <details class="route-card">
                     <summary>
+                        <svg class="route-icon" viewBox="0 0 100 100">
+                            <path d="M10,80 C30,60 50,90 90,70 L90,90 L10,90 Z" fill="#000"/>
+                            <path d="M40,75 C35,75 32,70 32,65 C32,60 35,55 40,55 C45,55 50,60 50,65 C55,65 60,60 60,55 C65,55 70,60 70,65 L70,75 M45,75 L45,85 M65,75 L65,85 M35,85 L40,85 M70,85 L75,85" stroke="#000" stroke-width="2" fill="none"/>
+                            <path d="M80,20 L83,27 L90,30 L83,33 L80,40 L77,33 L70,30 L77,27 Z" fill="#000"/>
+                        </svg>
                         <h3>DESERT SPOOR: BIKEPACKING IN JORDAN AND ISRAEL</h3>
                         <span class="route-stats">(Jordan & Israel | 950 km | 12,500 m)</span>
                         <div class="toggle-icon">∨</div>
@@ -467,6 +508,10 @@
 
                 <details class="route-card">
                     <summary>
+                        <svg class="route-icon" viewBox="0 0 100 100">
+                            <path d="M15,80 L35,60 C55,40 45,30 65,10 M15,80 L65,80" stroke="#000" stroke-width="3" fill="none"/>
+                            <path d="M60,60 L90,60 L75,35 Z M60,60 L75,75 L90,60" fill="#000"/>
+                        </svg>
                         <h3>NOMAD TRAILS: BIKEPACKING ROUTES MONGOLIA</h3>
                         <span class="route-stats">(Mongolia | 1,200 km | 14,000 m)</span>
                         <div class="toggle-icon">∨</div>
@@ -482,6 +527,10 @@
 
                 <details class="route-card">
                     <summary>
+                        <svg class="route-icon" viewBox="0 0 100 100">
+                            <path d="M10,80 L10,50 L30,50 L30,40 L70,40 L70,50 L90,50 L90,80 Z" fill="#000"/>
+                            <path d="M75,80 L75,60 M70,65 L80,65 M75,60 C80,60 83,55 83,50" stroke="#eee" stroke-width="3" fill="none"/>
+                        </svg>
                         <h3>PIONEER TRAIL: BIKEPACKING THE WILD WEST WONDERS OF THE USA</h3>
                         <span class="route-stats">(USA | 680 km | 8,200 m)</span>
                         <div class="toggle-icon">∨</div>
@@ -497,6 +546,11 @@
 
                 <details class="route-card">
                     <summary>
+                        <svg class="route-icon" viewBox="0 0 100 100">
+                            <path d="M10,80 L50,20 L90,80 Z" fill="#eee" stroke="#000" stroke-width="2"/>
+                            <circle cx="50" cy="20" r="5" fill="#000"/>
+                            <path d="M20,85 L80,85 M25,90 L75,90 M30,95 L70,95" stroke="#000" stroke-width="2"/>
+                        </svg>
                         <h3>PUNA LOOP: BIKEPACKING IN NORTHWEST ARGENTINA</h3>
                         <span class="route-stats">(Argentina | 720 km | 9,800 m)</span>
                         <div class="toggle-icon">∨</div>
@@ -512,6 +566,11 @@
 
                 <details class="route-card">
                     <summary>
+                        <svg class="route-icon" viewBox="0 0 100 100">
+                            <path d="M20,60 C20,50 30,40 50,40 C70,40 80,50 80,60 L80,75 L20,75 Z M30,75 L30,85 M70,75 L70,85" fill="#000"/>
+                            <path d="M10,40 C10,30 20,20 30,20 M90,40 C90,30 80,20 70,20" stroke="#000" stroke-width="4" fill="none"/>
+                            <path d="M10,10 L90,10 M20,10 L25,20 M40,10 L45,20 M60,10 L65,20 M80,10 L85,20" stroke="#000" stroke-width="2"/>
+                        </svg>
                         <h3>THE YAK TRACK: A BIKEPACKING ADVENTURE IN EASTERN TIBET</h3>
                         <span class="route-stats">(Tibet/China | 1,100 km | 16,500 m)</span>
                         <div class="toggle-icon">∨</div>
