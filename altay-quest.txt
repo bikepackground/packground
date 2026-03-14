@@ -63,5 +63,3 @@ The route consists of two loops and a one-way section, connected by the border c
 * **Timing:** Mid-August to late September. Avoids summer mosquitoes and early October snow.
 * **Navigation:** Many tracks not on OpenStreetMap. Use the **Soviet Military Maps app** with our GPX data.
 * **Difficulty:** High fitness and mental perseverance required. Light bikepacking setup is essential.
-
-© bikepackground, for private use only and at your own risk.
