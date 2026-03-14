@@ -24,23 +24,46 @@
             margin: 60px auto; 
             padding: 0 20px; 
             background-color: var(--bg-light);
-            text-align: left; /* Alles linksbündig */
+            text-align: left;
         }
 
-        h1 { font-size: 2.2rem; border-bottom: 2px solid var(--primary-blue); padding-bottom: 10px; margin-bottom: 20px; text-align: left; }
-        h2 { font-size: 1.5rem; margin-top: 40px; color: var(--text-dark); text-align: left; }
+        h1 { font-size: 2.2rem; border-bottom: 2px solid var(--primary-blue); padding-bottom: 10px; margin-bottom: 20px; }
+        h2 { font-size: 1.5rem; margin-top: 40px; color: var(--text-dark); }
+        h3 { font-size: 1.2rem; margin-top: 30px; }
         
         .back-link { display: inline-block; margin-bottom: 20px; color: var(--accent-orange); text-decoration: none; font-weight: 600; }
         .back-link:hover { text-decoration: underline; }
         
         #route-image { width: 100%; border-radius: 12px; margin-bottom: 30px; display: none; }
         
+        /* Styling für die ausklappbaren Unterrouten (Toggles) */
+        details {
+            background: #f9f9f9;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            border: 1px solid #eee;
+            cursor: pointer;
+            transition: background 0.2s ease;
+        }
+        details summary {
+            font-weight: 600;
+            outline: none;
+            list-style: none;
+        }
+        details summary::-webkit-details-marker { display: none; }
+        details[open] {
+            background: #fff;
+            border-color: var(--primary-blue);
+        }
+        details p { margin-top: 10px; margin-bottom: 0; font-size: 0.95rem; color: var(--text-dim); }
+
         /* Gaia Button Style */
         .gaia-button { 
             display: none; 
             background-color: var(--accent-orange); 
             color: white; 
-            text-align: center; /* Text im Button bleibt zentriert */
+            text-align: center; 
             padding: 20px; 
             border-radius: 12px; 
             text-decoration: none; 
@@ -51,9 +74,9 @@
         .gaia-button .main-text { display: block; font-weight: 600; font-size: 1.2rem; text-transform: uppercase; letter-spacing: 1px; }
         .gaia-button .sub-text { display: block; font-size: 0.9rem; margin-top: 5px; opacity: 0.9; }
 
-        /* Footer Styles angepasst auf linksbündig */
+        /* Footer Styles aus index.html (auf Links angepasst) */
         .site-footer {
-            text-align: left; /* Footer-Text linksbündig */
+            text-align: left;
             border-top: 1px solid #eee;
             padding: 40px 0 60px 0; 
             font-size: 0.85rem;
@@ -64,7 +87,7 @@
         .footer-subtext {
             font-size: 0.75rem;
             color: #aaa;
-            margin: 10px 0 0 0; /* Margin auf links angepasst */
+            margin: 10px 0 0 0;
             line-height: 1.6;
         }
     </style>
@@ -72,8 +95,10 @@
 <body>
     <a href="index.html" class="back-link">&larr; Back to Explore</a>
     
-    <div id="content">
-        </div>
+    <div id="content-container">
+        <div id="route-content">
+            </div>
+    </div>
 
     <a href="#" id="gaia-link" class="gaia-button">
         <span class="main-text">Waypoints and track on GaiaGPS</span>
@@ -104,18 +129,19 @@
                     const gaiaUrl = lines[0].trim(); 
                     const markdownContent = lines.slice(1).join('\n'); 
 
-                    // 1. Bild anzeigen
+                    // 1. Bild dynamisch erstellen und anzeigen
                     const img = document.createElement('img');
                     img.src = routeName + '.jpg';
                     img.id = "route-image";
                     img.style.display = "block";
+                    // Bild nur anzeigen, wenn es existiert
                     img.onerror = function() { this.style.display = 'none'; };
-                    document.getElementById('content').before(img);
+                    document.getElementById('route-content').before(img);
 
-                    // 2. Markdown in HTML umwandeln
-                    document.getElementById('content').innerHTML = marked.parse(markdownContent);
+                    // 2. Markdown (inkl. HTML-Tags wie <details>) umwandeln
+                    document.getElementById('route-content').innerHTML = marked.parse(markdownContent);
 
-                    // 3. Gaia Button aktivieren
+                    // 3. Gaia Button aktivieren, wenn Link vorhanden
                     if(gaiaUrl.startsWith('http')) {
                         const btn = document.getElementById('gaia-link');
                         btn.href = gaiaUrl;
@@ -123,9 +149,11 @@
                     }
                 })
                 .catch(err => {
-                    document.getElementById('content').innerHTML = "<h1>Route not found</h1><p>Sorry, the description for this adventure is currently not available.</p>";
+                    document.getElementById('route-content').innerHTML = "<h1>Route not found</h1><p>Sorry, the description for this adventure is currently not available.</p>";
                     console.error(err);
                 });
+        } else {
+            window.location.href = 'index.html';
         }
     </script>
 </body>
