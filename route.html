@@ -7,19 +7,66 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <style>
-        body { font-family: 'Inter', sans-serif; line-height: 1.6; color: #1a1a1a; max-width: 800px; margin: 60px auto; padding: 0 20px; }
-        h1 { font-size: 2.2rem; border-bottom: 2px solid #d8e8f0; padding-bottom: 10px; margin-bottom: 20px; }
-        h2 { font-size: 1.5rem; margin-top: 40px; color: #2c3e50; }
-        .back-link { display: inline-block; margin-bottom: 20px; color: #e67e22; text-decoration: none; font-weight: 600; }
+        :root {
+            --primary-blue: #d8e8f0; 
+            --bg-light: #ffffff;
+            --text-dark: #1a1a1a;
+            --text-dim: #666666;
+            --accent-orange: #e67e22; 
+            --font-main: 'Inter', sans-serif;
+        }
+
+        body { 
+            font-family: var(--font-main); 
+            line-height: 1.6; 
+            color: var(--text-dark); 
+            max-width: 800px; 
+            margin: 60px auto; 
+            padding: 0 20px; 
+            background-color: var(--bg-light);
+            text-align: left; /* Alles linksbündig */
+        }
+
+        h1 { font-size: 2.2rem; border-bottom: 2px solid var(--primary-blue); padding-bottom: 10px; margin-bottom: 20px; text-align: left; }
+        h2 { font-size: 1.5rem; margin-top: 40px; color: var(--text-dark); text-align: left; }
+        
+        .back-link { display: inline-block; margin-bottom: 20px; color: var(--accent-orange); text-decoration: none; font-weight: 600; }
+        .back-link:hover { text-decoration: underline; }
         
         #route-image { width: 100%; border-radius: 12px; margin-bottom: 30px; display: none; }
         
-        .gaia-button { display: none; background-color: #e67e22; color: white; text-align: center; padding: 20px; border-radius: 12px; text-decoration: none; margin: 50px 0; }
+        /* Gaia Button Style */
+        .gaia-button { 
+            display: none; 
+            background-color: var(--accent-orange); 
+            color: white; 
+            text-align: center; /* Text im Button bleibt zentriert */
+            padding: 20px; 
+            border-radius: 12px; 
+            text-decoration: none; 
+            margin: 50px 0; 
+            transition: background-color 0.2s;
+        }
         .gaia-button:hover { background-color: #d35400; }
-        .gaia-button .main-text { display: block; font-weight: 600; font-size: 1.2rem; text-transform: uppercase; }
-        .gaia-button .sub-text { display: block; font-size: 0.9rem; opacity: 0.9; }
+        .gaia-button .main-text { display: block; font-weight: 600; font-size: 1.2rem; text-transform: uppercase; letter-spacing: 1px; }
+        .gaia-button .sub-text { display: block; font-size: 0.9rem; margin-top: 5px; opacity: 0.9; }
 
-        footer { margin-top: 80px; font-size: 0.8rem; color: #999; border-top: 1px solid #eee; padding-top: 20px; }
+        /* Footer Styles angepasst auf linksbündig */
+        .site-footer {
+            text-align: left; /* Footer-Text linksbündig */
+            border-top: 1px solid #eee;
+            padding: 40px 0 60px 0; 
+            font-size: 0.85rem;
+            color: var(--text-dark);
+            background-color: var(--bg-light);
+            margin-top: 80px;
+        }
+        .footer-subtext {
+            font-size: 0.75rem;
+            color: #aaa;
+            margin: 10px 0 0 0; /* Margin auf links angepasst */
+            line-height: 1.6;
+        }
     </style>
 </head>
 <body>
@@ -33,7 +80,14 @@
         <span class="sub-text">Find full route description in the notes section</span>
     </a>
 
-    <footer>Last updated: March 2026</footer>
+    <footer class="site-footer">
+        <div>
+            &copy; bikepackground &ndash; shared for your next adventure.
+        </div>
+        <div class="footer-subtext">
+            <a href="legal.html" style="color: inherit; text-decoration: underline;">Imprint & Privacy</a>
+        </div>
+    </footer>
 
     <script>
         const urlParams = new URLSearchParams(window.location.search);
@@ -41,21 +95,24 @@
 
         if (routeName) {
             fetch(routeName + '.txt')
-                .then(response => response.text())
+                .then(response => {
+                    if (!response.ok) throw new Error('File not found');
+                    return response.text();
+                })
                 .then(text => {
-                    // Falls du die erste Zeile für den Gaia-Link reservieren willst:
                     const lines = text.split('\n');
-                    const gaiaUrl = lines[0].trim(); // Erste Zeile ist die URL
-                    const markdownContent = lines.slice(1).join('\n'); // Der Rest ist Text
+                    const gaiaUrl = lines[0].trim(); 
+                    const markdownContent = lines.slice(1).join('\n'); 
 
-                    // 1. Bild anzeigen (erwartet route-name.jpg)
+                    // 1. Bild anzeigen
                     const img = document.createElement('img');
                     img.src = routeName + '.jpg';
                     img.id = "route-image";
                     img.style.display = "block";
+                    img.onerror = function() { this.style.display = 'none'; };
                     document.getElementById('content').before(img);
 
-                    // 2. Markdown in HTML umwandeln und einfügen
+                    // 2. Markdown in HTML umwandeln
                     document.getElementById('content').innerHTML = marked.parse(markdownContent);
 
                     // 3. Gaia Button aktivieren
@@ -64,6 +121,10 @@
                         btn.href = gaiaUrl;
                         btn.style.display = 'block';
                     }
+                })
+                .catch(err => {
+                    document.getElementById('content').innerHTML = "<h1>Route not found</h1><p>Sorry, the description for this adventure is currently not available.</p>";
+                    console.error(err);
                 });
         }
     </script>
