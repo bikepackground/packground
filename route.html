@@ -24,6 +24,7 @@
             margin: 60px auto; 
             padding: 0 20px; 
             background-color: var(--bg-light);
+            text-align: left;
         }
 
         h1 { font-size: 2.2rem; border-bottom: 2px solid var(--primary-blue); padding-bottom: 10px; margin-bottom: 20px; }
@@ -83,13 +84,14 @@
             text-transform: uppercase;
             width: fit-content; 
         }
+        .gaia-button:hover { background-color: #d35400; }
 
         .risk-notice {
             font-size: 0.85rem;
             color: var(--text-dim);
             text-align: center;
             margin-top: 10px;
-            display: none; /* Nur zeigen wenn Button da */
+            display: none;
         }
 
         /* Error Note Styling */
@@ -108,9 +110,10 @@
             padding: 40px 0 60px 0; 
             font-size: 0.85rem;
             color: var(--text-dark);
+            background-color: var(--bg-light);
             margin-top: 60px;
         }
-        .footer-subtext { font-size: 0.75rem; color: #aaa; margin-top: 5px; }
+        .footer-subtext { font-size: 0.75rem; color: #aaa; margin: 5px auto 0 auto; line-height: 1.6; }
     </style>
 </head>
 <body>
@@ -121,8 +124,7 @@
         <div id="img-link-area" class="image-link-container">
             <a href="https://findpenguins.com/bikepackground" target="_blank" class="sub-link">For more pictures visit findpenguins.com/bikepackground</a>
         </div>
-        <div id="route-content">
-            </div>
+        <div id="route-content">Loading...</div>
     </div>
 
     <div class="gaia-button-container">
@@ -141,7 +143,6 @@
         window.onload = function() {
             const urlParams = new URLSearchParams(window.location.search);
             const routeName = urlParams.get('route');
-
             const contentDiv = document.getElementById('route-content');
 
             if (!routeName) {
@@ -159,7 +160,23 @@
                     const gaiaUrl = lines[0].trim(); 
                     const markdownContent = lines.slice(1).join('\n'); 
 
-                    // Bild-Logik
+                    // --- AUTOMATISCHE METADATEN ---
+                    // Holt den Titel aus der ersten H1 (# Titel)
+                    const titleMatch = markdownContent.match(/^#\s+(.*)/m);
+                    const routeTitle = titleMatch ? titleMatch[1] : routeName.replace(/-/g, ' ');
+                    document.title = routeTitle + " | bikepackground";
+
+                    // Holt die ersten 160 Zeichen für die Beschreibung
+                    const plainText = markdownContent.replace(/[#*<>=]/g, '').substring(0, 160).trim();
+                    let metaDesc = document.querySelector('meta[name="description"]');
+                    if (!metaDesc) {
+                        metaDesc = document.createElement('meta');
+                        metaDesc.name = "description";
+                        document.head.appendChild(metaDesc);
+                    }
+                    metaDesc.content = plainText + "...";
+
+                    // Bild-Logik (.JPG)
                     const img = document.getElementById('route-image');
                     const imgLink = document.getElementById('img-link-area');
                     img.src = routeName + '.JPG';
