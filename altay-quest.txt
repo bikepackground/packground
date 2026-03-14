@@ -20,7 +20,6 @@ The route consists of two loops and a one-way section, connected by the border c
 3. **Altay Loop (Mongolia):** From Ölgii through the Bulgan Valley to Khovd, then traverse the Tsambagaraav National Park before returning to Ölgii.
 4. **Grand Finale (Ölgii to Ulaangom):** Through the rugged Kharkhiraa Mountains. Note: The direct connection from Ulaangom to the Russian border is currently impassable due to missing bridges.
 
----
 
 <details>
 <summary>UKOK LOOP (RUSSIA)</summary>
@@ -55,7 +54,6 @@ From Ölgii through Hovd Canyon to Archit Nuur. Section is heavily sandy until t
 </p>
 </details>
 
----
 
 ## INFRASTRUCTURE & LOGISTICS
 
