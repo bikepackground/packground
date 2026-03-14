@@ -35,11 +35,9 @@
         
         #route-image { width: 100%; border-radius: 12px; margin-bottom: 15px; display: none; }
 
-        /* Zentrierter Link unter dem Bild */
         .image-link-container { text-align: center; margin-bottom: 30px; display: none; }
         .sub-link { font-size: 0.85rem; color: var(--text-dim); text-decoration: underline; }
 
-        /* Toggles ohne Linien, mit Pfeil rechts */
         details {
             background: #f4f4f4;
             padding: 15px 20px;
@@ -69,7 +67,6 @@
 
         details div { margin-top: 15px; }
 
-        /* Button Styling - schmaler, kein Untertitel */
         .gaia-button-container {
             display: flex;
             flex-direction: column;
@@ -100,9 +97,9 @@
             margin-top: 10px;
         }
 
-        /* Footer Styles */
+        /* Footer Styles - ZENTRIERT wie in index.html */
         .site-footer {
-            text-align: left;
+            text-align: center;
             border-top: 1px solid #eee;
             padding: 40px 0 60px 0; 
             font-size: 0.85rem;
@@ -113,7 +110,8 @@
         .footer-subtext {
             font-size: 0.75rem;
             color: #aaa;
-            margin-top: 5px;
+            margin: 5px auto 0 auto;
+            line-height: 1.6;
         }
     </style>
 </head>
@@ -158,23 +156,20 @@
                     const gaiaUrl = lines[0].trim(); 
                     const markdownContent = lines.slice(1).join('\n'); 
 
-                    // Bild Logik
                     const img = document.getElementById('route-image');
                     const imgLink = document.getElementById('img-link-area');
                     img.src = routeName + '.jpg';
                     img.onload = function() { 
                         this.style.display = 'block'; 
-                        imgLink.style.display = 'block'; // Link nur zeigen wenn Bild da
+                        imgLink.style.display = 'block';
                     };
                     img.onerror = function() { 
                         this.style.display = 'none'; 
                         imgLink.style.display = 'none';
                     };
 
-                    // Markdown zu HTML
                     document.getElementById('route-content').innerHTML = marked.parse(markdownContent);
 
-                    // Gaia Button
                     if(gaiaUrl.startsWith('http')) {
                         const btn = document.getElementById('gaia-link');
                         btn.href = gaiaUrl;
