@@ -44,7 +44,10 @@
             border-radius: 8px;
             margin-bottom: 10px;
             cursor: pointer;
+            border: none;
         }
+        #route-content hr { display: none; } /* Entfernt MD-Linien */
+
         details summary {
             font-weight: 600;
             outline: none;
@@ -59,9 +62,8 @@
             font-size: 0.8rem;
             transition: transform 0.2s;
         }
-        details[open] summary::after {
-            transform: rotate(90deg);
-        }
+        details[open] summary::after { transform: rotate(90deg); }
+        details div { margin-top: 15px; }
 
         /* Button Styling */
         .gaia-button-container {
@@ -74,7 +76,6 @@
             display: none; 
             background-color: var(--accent-orange); 
             color: white; 
-            text-align: center; 
             padding: 12px 30px; 
             border-radius: 8px; 
             text-decoration: none; 
@@ -88,6 +89,17 @@
             color: var(--text-dim);
             text-align: center;
             margin-top: 10px;
+            display: none; /* Nur zeigen wenn Button da */
+        }
+
+        /* Error Note Styling */
+        .error-note {
+            background: #fff5f5;
+            border: 1px solid #feb2b2;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            margin-top: 40px;
         }
 
         .site-footer {
@@ -109,12 +121,13 @@
         <div id="img-link-area" class="image-link-container">
             <a href="https://findpenguins.com/bikepackground" target="_blank" class="sub-link">For more pictures visit findpenguins.com/bikepackground</a>
         </div>
-        <div id="route-content"></div>
+        <div id="route-content">
+            </div>
     </div>
 
     <div class="gaia-button-container">
         <a href="#" id="gaia-link" class="gaia-button">Waypoints and track on GaiaGPS</a>
-        <p class="risk-notice">for private use only and at your own risk.</p>
+        <p id="risk-text" class="risk-notice">for private use only and at your own risk.</p>
     </div>
 
     <footer class="site-footer">
@@ -125,35 +138,60 @@
     </footer>
 
     <script>
-        const urlParams = new URLSearchParams(window.location.search);
-        const routeName = urlParams.get('route');
+        window.onload = function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const routeName = urlParams.get('route');
 
-        if (routeName) {
+            const contentDiv = document.getElementById('route-content');
+
+            if (!routeName) {
+                showError("No route specified.");
+                return;
+            }
+
             fetch(routeName + '.txt')
-                .then(res => res.text())
+                .then(res => {
+                    if (!res.ok) throw new Error("Route file not found.");
+                    return res.text();
+                })
                 .then(text => {
                     const lines = text.split('\n');
                     const gaiaUrl = lines[0].trim(); 
                     const markdownContent = lines.slice(1).join('\n'); 
 
-                    // Bild-Logik (.JPG)
+                    // Bild-Logik
                     const img = document.getElementById('route-image');
                     const imgLink = document.getElementById('img-link-area');
                     img.src = routeName + '.JPG';
-                    img.onload = () => { img.style.display = 'block'; imgLink.style.display = 'block'; };
+                    img.onload = () => { 
+                        img.style.display = 'block'; 
+                        imgLink.style.display = 'block'; 
+                    };
 
                     // Content rendern
-                    document.getElementById('route-content').innerHTML = marked.parse(markdownContent);
+                    contentDiv.innerHTML = marked.parse(markdownContent);
 
-                    // Gaia Button
+                    // Gaia Button & Risk Notice
                     if(gaiaUrl.startsWith('http')) {
-                        const btn = document.getElementById('gaia-link');
-                        btn.href = gaiaUrl;
-                        btn.style.display = 'inline-block';
+                        document.getElementById('gaia-link').href = gaiaUrl;
+                        document.getElementById('gaia-link').style.display = 'inline-block';
+                        document.getElementById('risk-text').style.display = 'block';
                     }
                 })
-                .catch(err => console.error("Fehler beim Laden:", err));
-        }
+                .catch(err => {
+                    showError("Sorry, this adventure description is currently not available.");
+                    console.error(err);
+                });
+
+            function showError(message) {
+                contentDiv.innerHTML = `
+                    <div class="error-note">
+                        <h3>Route not found</h3>
+                        <p>${message}</p>
+                        <a href="index.html" class="back-link" style="margin-top:10px;">Return to Overview</a>
+                    </div>`;
+            }
+        };
     </script>
 </body>
 </html>
