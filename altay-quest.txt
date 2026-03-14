@@ -57,7 +57,7 @@ From Ölgii through Hovd Canyon to Archit Nuur. Section is heavily sandy until t
 
 ## INFRASTRUCTURE & LOGISTICS
 
-* **Water:** Sources marked in GPX. In Mongolia, all water should be treated. In Russia, quality is high but treatment recommended.
+* **Water:** Sources marked in GPX. All water should be treated.
 * **Timing:** Mid-August to late September. Avoids summer mosquitoes and early October snow.
-* **Navigation:** Many tracks not on OpenStreetMap. Use the **Soviet Military Maps app** with our GPX data.
+* **Navigation:** Many tracks not on OpenStreetMap. Use the **Soviet Military Maps app** together with our GPX data.
 * **Difficulty:** High fitness and mental perseverance required. Light bikepacking setup is essential.
