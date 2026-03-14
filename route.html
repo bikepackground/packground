@@ -16,15 +16,28 @@
             --font-main: 'Inter', sans-serif;
         }
 
+        /* STICKY FOOTER LOGIK */
+        html, body {
+            height: 100%;
+            margin: 0;
+        }
+
         body { 
             font-family: var(--font-main); 
             line-height: 1.6; 
             color: var(--text-dark); 
+            background-color: var(--bg-light);
+            display: flex;
+            flex-direction: column; /* Stapelt Inhalt vertikal */
+        }
+
+        .main-wrapper {
+            flex: 1 0 auto; /* Lässt diesen Bereich den verfügbaren Platz füllen */
             max-width: 800px; 
             margin: 60px auto; 
             padding: 0 20px; 
-            background-color: var(--bg-light);
-            text-align: left;
+            width: 100%;
+            box-sizing: border-box;
         }
 
         h1 { font-size: 2.2rem; border-bottom: 2px solid var(--primary-blue); padding-bottom: 10px; margin-bottom: 20px; }
@@ -47,7 +60,7 @@
             cursor: pointer;
             border: none;
         }
-        #route-content hr { display: none; } /* Entfernt MD-Linien */
+        #route-content hr { display: none; }
 
         details summary {
             font-weight: 600;
@@ -94,7 +107,19 @@
             display: none;
         }
 
-        /* Error Note Styling */
+        /* FOOTER UNTEN */
+        .site-footer {
+            flex-shrink: 0; /* Verhindert, dass der Footer schrumpft */
+            text-align: center;
+            border-top: 1px solid #eee;
+            padding: 40px 0 60px 0; 
+            font-size: 0.85rem;
+            color: var(--text-dark);
+            background-color: var(--bg-light);
+            width: 100%;
+        }
+        .footer-subtext { font-size: 0.75rem; color: #aaa; margin: 5px auto 0 auto; line-height: 1.6; }
+
         .error-note {
             background: #fff5f5;
             border: 1px solid #feb2b2;
@@ -103,33 +128,25 @@
             text-align: center;
             margin-top: 40px;
         }
-
-        .site-footer {
-            text-align: center;
-            border-top: 1px solid #eee;
-            padding: 40px 0 60px 0; 
-            font-size: 0.85rem;
-            color: var(--text-dark);
-            background-color: var(--bg-light);
-            margin-top: 60px;
-        }
-        .footer-subtext { font-size: 0.75rem; color: #aaa; margin: 5px auto 0 auto; line-height: 1.6; }
     </style>
 </head>
 <body>
-    <a href="index.html" class="back-link">&larr; Back to Explore</a>
-    
-    <div id="route-container">
-        <img id="route-image" src="">
-        <div id="img-link-area" class="image-link-container">
-            <a href="https://findpenguins.com/bikepackground" target="_blank" class="sub-link">For more pictures visit findpenguins.com/bikepackground</a>
-        </div>
-        <div id="route-content">Loading...</div>
-    </div>
 
-    <div class="gaia-button-container">
-        <a href="#" id="gaia-link" class="gaia-button">Waypoints and track on GaiaGPS</a>
-        <p id="risk-text" class="risk-notice">for private use only and at your own risk.</p>
+    <div class="main-wrapper">
+        <a href="index.html" class="back-link">&larr; Back to Explore</a>
+        
+        <div id="route-container">
+            <img id="route-image" src="">
+            <div id="img-link-area" class="image-link-container">
+                <a href="https://findpenguins.com/bikepackground" target="_blank" class="sub-link">For more pictures visit findpenguins.com/bikepackground</a>
+            </div>
+            <div id="route-content">Loading...</div>
+        </div>
+
+        <div class="gaia-button-container">
+            <a href="#" id="gaia-link" class="gaia-button">Waypoints and track on GaiaGPS</a>
+            <p id="risk-text" class="risk-notice">for private use only and at your own risk.</p>
+        </div>
     </div>
 
     <footer class="site-footer">
@@ -161,12 +178,10 @@
                     const markdownContent = lines.slice(1).join('\n'); 
 
                     // --- AUTOMATISCHE METADATEN ---
-                    // Holt den Titel aus der ersten H1 (# Titel)
                     const titleMatch = markdownContent.match(/^#\s+(.*)/m);
                     const routeTitle = titleMatch ? titleMatch[1] : routeName.replace(/-/g, ' ');
                     document.title = routeTitle + " | bikepackground";
 
-                    // Holt die ersten 160 Zeichen für die Beschreibung
                     const plainText = markdownContent.replace(/[#*<>=]/g, '').substring(0, 160).trim();
                     let metaDesc = document.querySelector('meta[name="description"]');
                     if (!metaDesc) {
@@ -197,7 +212,6 @@
                 })
                 .catch(err => {
                     showError("Sorry, this adventure description is currently not available.");
-                    console.error(err);
                 });
 
             function showError(message) {
