@@ -18,7 +18,7 @@ This bikepacking guide contains five different routes across various regions, al
 * **Water:** While rivers are usually frequent, some sections require careful planning (sources every 70 km). Water treatment is mandatory.
 * **Camping:** Outside of major capitals, you will rely on your tent. Wild camping is possible everywhere. Safety Tip: Summer afternoons often bring thunderstorms; avoid pitching on hilltops to mitigate lightning risk.
 * **Money:** ATMs are available only in Aimag capitals.
-* **Navigation:** Beside our gpx-tracks and waypoints The **Soviet Military Maps app** (Android) are essential. Despite having GPX tracks, the 'main track' should always be cross-referenced with locals, as paths frequently shift.
+* **Navigation:** Beside our gpx-tracks and waypoints The **Soviet Military Maps app** (Android) is essential. Despite having GPX tracks, the 'main track' should always be cross-referenced with locals, as paths frequently shift.
 <details>
 <summary>CENTRAL ROUTE (ULIASTAI TO KHOVD)</summary>
 <div>
