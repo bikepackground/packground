@@ -16,10 +16,9 @@ This bikepacking guide contains five different routes across various regions, al
 
 * **Supplies:** Mongolia is a self-catering destination. District/Aimag capitals offer supermarkets with imported goods, while smaller village shops provide basics like pasta, oats, nuts, and biscuits. Expect to carry 3–5 days of provisions.
 * **Water:** While rivers are usually frequent, some sections require careful planning (sources every 70 km). Water treatment is mandatory.
-* **Camping:** Outside of major capitals, you will rely on your tent. Wild camping is possible everywhere. **Safety Tip:** Summer afternoons often bring thunderstorms; avoid pitching on hilltops to mitigate lightning risk.
+* **Camping:** Outside of major capitals, you will rely on your tent. Wild camping is possible everywhere. Safety Tip: Summer afternoons often bring thunderstorms; avoid pitching on hilltops to mitigate lightning risk.
 * **Money:** ATMs are available only in Aimag capitals.
-* **Navigation:** The **Soviet Military Maps app** (Android) and the local Road Atlas (available in Ulaanbaatar) are essential. Trotz vorliegender GPX-Tracks sollte die „Hauptspur“ immer wieder mit Einheimischen abgeglichen werden, da sich Wege oft verlagern.
-
+* **Navigation:** Beside our gpx-tracks and waypoints The **Soviet Military Maps app** (Android) are essential. Despite having GPX tracks, the 'main track' should always be cross-referenced with locals, as paths frequently shift.
 <details>
 <summary>CENTRAL ROUTE (ULIASTAI TO KHOVD)</summary>
 <div>
