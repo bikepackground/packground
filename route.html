@@ -132,6 +132,9 @@
         
         <div id="route-container">
             <img id="route-image" src="">
+            <div id="update-area" class="image-link-container" style="margin-bottom: 5px; text-decoration: none; color: var(--text-dim); font-size: 0.85rem;">
+                Please help keep this information up to date! Contact via Instagram <a href="https://www.instagram.com/bikepackground" target="_blank" class="sub-link">@bikepackground</a>
+            </div>
             <div id="img-link-area" class="image-link-container">
                 <a href="https://findpenguins.com/bikepackground" target="_blank" class="sub-link">For more pictures visit findpenguins.com/bikepackground</a>
             </div>
@@ -161,7 +164,6 @@
                     <p>${message}</p>
                     <a href="index.html" class="back-link" style="margin-top:10px; margin-bottom:0;">Return to Overview</a>
                 </div>`;
-            // Sicherstellen, dass Risk-Text und Gaia ausgeblendet bleiben
             document.getElementById('risk-text').style.display = 'none';
             document.getElementById('gaia-link').style.display = 'none';
         }
@@ -192,24 +194,23 @@
                     const gaiaUrl = lines[0].trim(); 
                     const markdownContent = lines.slice(1).join('\n'); 
 
-                    // Metadaten
                     const titleMatch = markdownContent.match(/^#\s+(.*)/m);
                     const routeTitle = titleMatch ? titleMatch[1] : routeName.replace(/-/g, ' ');
                     document.title = routeTitle + " | bikepackground";
 
-                    // Bild (.JPG)
                     const img = document.getElementById('route-image');
                     const imgLink = document.getElementById('img-link-area');
+                    const updateArea = document.getElementById('update-area');
+                    
                     img.src = routeName + '.JPG';
                     img.onload = () => { 
                         img.style.display = 'block'; 
                         imgLink.style.display = 'block'; 
+                        updateArea.style.display = 'block';
                     };
 
-                    // Content rendern
                     contentDiv.innerHTML = marked.parse(markdownContent);
 
-                    // Gaia Button
                     if(gaiaUrl.toLowerCase().startsWith('http')) {
                         const gaiaLink = document.getElementById('gaia-link');
                         gaiaLink.href = gaiaUrl;
