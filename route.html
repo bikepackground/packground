@@ -45,6 +45,16 @@
         .back-link { display: inline-block; margin-bottom: 20px; color: var(--accent-orange); text-decoration: none; font-weight: 600; }
         .back-link:hover { text-decoration: underline; }
         
+        /* Links innerhalb des geladenen Contents (Orange, nicht fett) */
+        #route-content a {
+            color: var(--accent-orange);
+            text-decoration: underline;
+            font-weight: 400; /* Normal statt Fett */
+        }
+        #route-content a:hover {
+            text-decoration: none;
+        }
+
         #route-image { width: 100%; border-radius: 12px; margin-bottom: 15px; display: none; }
 
         .image-link-container { text-align: center; margin-bottom: 30px; display: none; }
@@ -139,7 +149,7 @@
             <div id="route-content">Loading adventure...</div>
 
             <div id="update-area" class="image-link-container" style="margin-top: 20px; margin-bottom: 20px; text-decoration: none; color: var(--text-dim); font-size: 0.85rem;">
-                Please help keep this information up to date! Contact via Instagram <a href="https://www.instagram.com/bikepackground" target="_blank" class="sub-link">@bikepackground</a>
+                Please help keep this information up to date! Contact via Instagram <a href="https://www.instagram.com/bikepackground" target="_blank" class="sub-link" style="color: var(--accent-orange); font-weight: 400;">@bikepackground</a>
             </div>
         </div>
 
