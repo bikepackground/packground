@@ -1,4 +1,4 @@
-https://www.gaiagps.com/public/NqtbrasThqKIXRyojIbrqr9d/
+https://www.gaiagps.com/public/M8p8N4QWp7u1f8N1N0p9N1N0/
 
 # NOMAD TRAILS: BIKEPACKING ROUTES MONGOLIA
 
@@ -18,7 +18,7 @@ This bikepacking guide contains five different routes across various regions, al
 * **Water:** While rivers are usually frequent, some sections require careful planning (sources every 70 km). Water treatment is mandatory.
 * **Camping:** Outside of major capitals, you will rely on your tent. Wild camping is possible everywhere. **Safety Tip:** Summer afternoons often bring thunderstorms; avoid pitching on hilltops to mitigate lightning risk.
 * **Money:** ATMs are available only in Aimag capitals.
-* **Navigation:** The **Soviet Military Maps app** (Android) and the local Road Atlas (available in Ulaanbaatar) are essential. Despite having GPX tracks, always cross-reference with locals to see if the "main" track has shifted.
+* **Navigation:** The **Soviet Military Maps app** (Android) and the local Road Atlas (available in Ulaanbaatar) are essential. Trotz vorliegender GPX-Tracks sollte die „Hauptspur“ immer wieder mit Einheimischen abgeglichen werden, da sich Wege oft verlagern.
 
 <details>
 <summary>CENTRAL ROUTE (ULIASTAI TO KHOVD)</summary>
@@ -88,12 +88,13 @@ For detailed descriptions, tracks, and specific logistics for this region, pleas
 Khövsgöl Lake freezes from January through March, creating a spectacular but unforgiving arena for winter cycling. Local contacts like Gambaa (MS Guesthouse) in Khatgal can be excellent resources for ice conditions.
 
 **Route:** Ride along the western bank, navigating the bays from cape to cape. The crossing typically takes three days. *Warning: The big bay at Doloon Uul is a major compression zone—expect active cracks.*
-**Logistics:** Daytime temperatures hover between -20°C and -30°C (-40°C at night). Unlike Lake Baikal, we identified yurts/lodges to sleep indoors: 
+**Logistics:** Daytime temperatures hover between -20°C and -30°C (-40°C at night). Yurts/lodges to sleep indoors: 
 * Toylogt: 50.651914N / 100.235172E
 * Hachum: 51.126739N / 100.320688E
 * Jigleg: 51.003579N / 100.281194E
 
-**Expert Level:** The extreme cold and the psychological pressure of "living" ice require prior experience in extreme winter cycling. For more detailed tips on navigating hazards and riding on ice, please refer to our **Lake Baikal** route description.
+**Expert Level:** The extreme cold and the psychological pressure of "living" ice require prior experience in extreme winter cycling. For more detailed tips on navigating hazards and riding on ice, please refer to our separate route description:
+[LAKE BAIKAL: Bikepacking Winter Expedition](route.html?route=bike-baikal)
 </div>
 </details>
 
