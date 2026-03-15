@@ -132,13 +132,15 @@
         
         <div id="route-container">
             <img id="route-image" src="">
-            <div id="update-area" class="image-link-container" style="margin-bottom: 5px; text-decoration: none; color: var(--text-dim); font-size: 0.85rem;">
-                Please help keep this information up to date! Contact via Instagram <a href="https://www.instagram.com/bikepackground" target="_blank" class="sub-link">@bikepackground</a>
-            </div>
             <div id="img-link-area" class="image-link-container">
                 <a href="https://findpenguins.com/bikepackground" target="_blank" class="sub-link">For more pictures visit findpenguins.com/bikepackground</a>
             </div>
+            
             <div id="route-content">Loading adventure...</div>
+
+            <div id="update-area" class="image-link-container" style="margin-top: 20px; margin-bottom: 20px; text-decoration: none; color: var(--text-dim); font-size: 0.85rem;">
+                Please help keep this information up to date! Contact via Instagram <a href="https://www.instagram.com/bikepackground" target="_blank" class="sub-link">@bikepackground</a>
+            </div>
         </div>
 
         <div class="gaia-button-container">
@@ -166,6 +168,7 @@
                 </div>`;
             document.getElementById('risk-text').style.display = 'none';
             document.getElementById('gaia-link').style.display = 'none';
+            document.getElementById('update-area').style.display = 'none';
         }
 
         document.addEventListener('DOMContentLoaded', function() {
@@ -206,10 +209,10 @@
                     img.onload = () => { 
                         img.style.display = 'block'; 
                         imgLink.style.display = 'block'; 
-                        updateArea.style.display = 'block';
                     };
 
                     contentDiv.innerHTML = marked.parse(markdownContent);
+                    updateArea.style.display = 'block';
 
                     if(gaiaUrl.toLowerCase().startsWith('http')) {
                         const gaiaLink = document.getElementById('gaia-link');
