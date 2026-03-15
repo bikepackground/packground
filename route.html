@@ -151,3 +151,84 @@
         <div class="gaia-button-container">
             <a href="#" id="gaia-link" class="gaia-button">Waypoints and track on GaiaGPS</a>
             <p id="risk-text" class="risk-notice">for private use only and at your own risk.</p>
+            <a href="index.html" class="back-link" style="margin-top: 40px; margin-bottom: 0;">&larr; Back to Explore</a>
+        </div>
+    </div>
+
+    <footer class="site-footer">
+        <div>&copy; bikepackground &ndash; shared for your next adventure.</div>
+        <div class="footer-subtext">
+            <a href="legal.html" style="color: inherit; text-decoration: underline;">Imprint & Privacy</a>
+        </div>
+    </footer>
+
+    <script>
+        function showError() {
+            const contentDiv = document.getElementById('route-content');
+            contentDiv.innerHTML = `
+                <div class="error-note">
+                    <h3 style="margin-top:0;">Adventure not found</h3>
+                    <p>Sorry, this adventure description is currently not available.</p>
+                    <a href="index.html" class="back-link" style="margin-top:10px; margin-bottom:0;">Return to Overview</a>
+                </div>`;
+            document.getElementById('risk-text').style.display = 'none';
+            document.getElementById('gaia-link').style.display = 'none';
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const routeName = urlParams.get('route');
+            const contentDiv = document.getElementById('route-content');
+
+            if (!routeName) {
+                showError();
+                return;
+            }
+
+            fetch(routeName + '.txt')
+                .then(res => {
+                    if (!res.ok) throw new Error();
+                    return res.text();
+                })
+                .then(text => {
+                    if (!text || text.trim().length === 0) throw new Error();
+                    
+                    const lines = text.split('\n');
+                    const gaiaUrl = lines[0].trim(); 
+                    const markdownContent = lines.slice(1).join('\n'); 
+
+                    const titleMatch = markdownContent.match(/^#\s+(.*)/m);
+                    const routeTitle = titleMatch ? titleMatch[1] : routeName.replace(/-/g, ' ');
+                    document.title = routeTitle + " | bikepackground";
+
+                    const img = document.getElementById('route-image');
+                    const imgLink = document.getElementById('img-link-area');
+                    
+                    img.src = routeName + '.JPG';
+                    img.onload = () => { 
+                        img.style.display = 'block'; 
+                        imgLink.style.display = 'block'; 
+                    };
+
+                    contentDiv.innerHTML = marked.parse(markdownContent);
+
+                    const h1 = contentDiv.querySelector('h1');
+                    if (h1 && h1.nextElementSibling) {
+                        const updateArea = document.createElement('div');
+                        updateArea.style.cssText = "margin-top: -10px; margin-bottom: 20px; color: var(--text-dim); font-size: 0.85rem; text-align: left;";
+                        updateArea.innerHTML = `Please help keep this information up to date! Contact via Instagram <a href="https://www.instagram.com/bikepackground" target="_blank" style="color: var(--accent-orange); font-weight: 400; text-decoration: underline;">@bikepackground</a>`;
+                        h1.nextElementSibling.parentNode.insertBefore(updateArea, h1.nextElementSibling.nextSibling);
+                    }
+
+                    if(gaiaUrl.toLowerCase().startsWith('http')) {
+                        const gaiaLink = document.getElementById('gaia-link');
+                        gaiaLink.href = gaiaUrl;
+                        gaiaLink.style.display = 'inline-block';
+                        document.getElementById('risk-text').style.display = 'block';
+                    }
+                })
+                .catch(err => showError());
+        });
+    </script>
+</body>
+</html>
