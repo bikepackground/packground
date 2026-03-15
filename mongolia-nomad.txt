@@ -10,7 +10,7 @@ Mongolia—the land of angry winds, endless horizons, and magical light. But thi
 
 Scenically, Mongolia delivers much more than gently rolling hills. Few places on earth feature passes this steep or offer such a close proximity between desert, rugged mountains, and open steppe. With its infinite network of dirt tracks, it is a bikepacking paradise unlike any other. 
 
-This bikepacking guide contains four different routes across various regions, along with additional information for a winter expedition on Lake Khövsgöl.
+This bikepacking guide contains five different routes across various regions, along with additional information for a winter expedition on Lake Khövsgöl.
 
 ## INFRASTRUCTURE & LOGISTICS
 
@@ -67,6 +67,17 @@ Heading west from Khovd toward the Chinese border (Bulgan) or the Russian crossi
 **Bulgan Valley:** As you descend, the track follows an impressive canyon. The road consists of rough river pebbles, making for a bumpy ride down toward the Chinese border.
 **Permits:** While close to the border, we found that a passport was sufficient during several checks, and no special permit was required.
 **Alternatives:** South of Deluun, you can also head north toward Ölgii. From Tolbo onward, the road to the Russian border is fully paved.
+</div>
+</details>
+
+<details>
+<summary>ALTAY REGION (MONGOLIAN ALTAY)</summary>
+<div>
+
+The Mongolian Altay is a wild borderland characterized by the Bulgan Valley, the glaciated Tsambagaraav massif, and the rugged Kharkhiraa mountains. This region offers some of the most spectacular high-altitude scenery in Mongolia, including ancient migration paths of the Khoton nomads and challenging trailless passes.
+
+For detailed descriptions, tracks, and specific logistics for this region, please refer to our separate route description:
+[ALTAY QUEST: Bikepacking in the Borderland](route.html?route=altay-quest)
 </div>
 </details>
 
