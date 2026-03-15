@@ -1,0 +1,91 @@
+https://www.gaiagps.com/public/NqtbrasThqKIXRyojIbrqr9d/
+
+# NOMAD TRAILS: BIKEPACKING ROUTES MONGOLIA
+
+**Last updated:** September 2017
+
+## OVERVIEW
+
+Mongolia—the land of angry winds, endless horizons, and magical light. But this country offers far more than just vast, empty spaces. It is a place where nomadic culture remains an integral part of everyday life; a place where your gaze gets lost in the distance, making you feel tiny yet—as a bike nomad—deeply connected to the whole.
+
+Scenically, Mongolia delivers much more than gently rolling hills. Few places on earth feature passes this steep or offer such a close proximity between desert, rugged mountains, and open steppe. With its infinite network of dirt tracks, it is a bikepacking paradise unlike any other. 
+
+This bikepacking guide contains four different routes across various regions, along with additional information for a winter expedition on Lake Khövsgöl.
+
+## INFRASTRUCTURE & LOGISTICS
+
+* **Supplies:** Mongolia is a self-catering destination. District/Aimag capitals offer supermarkets with imported goods, while smaller village shops provide basics like pasta, oats, nuts, and biscuits. Expect to carry 3–5 days of provisions.
+* **Water:** While rivers are usually frequent, some sections require careful planning (sources every 70 km). Water treatment is mandatory.
+* **Camping:** Outside of major capitals, you will rely on your tent. Wild camping is possible everywhere. **Safety Tip:** Summer afternoons often bring thunderstorms; avoid pitching on hilltops to mitigate lightning risk.
+* **Money:** ATMs are available only in Aimag capitals.
+* **Navigation:** The **Soviet Military Maps app** (Android) and the local Road Atlas (available in Ulaanbaatar) are essential. Despite having GPX tracks, always cross-reference with locals to see if the "main" track has shifted.
+
+<details>
+<summary>CENTRAL ROUTE (ULIASTAI TO KHOVD)</summary>
+<div>
+
+From Uliastai, a direct and central connection traverses the Zavkhan Aimag to Khovd in the far west. Despite being overlooked by guidebooks, the Zavkhan province offers incredible diversity: towering dunes of Mongol Els, mysterious lakes hidden behind steep passes, and rivers carving green paradises through golden sands.
+
+**Terrain:** This is one of the most demanding sections regarding road conditions. Expect a 10–40 km sandy hike-a-bike stretch between Zavhanmandal and Zavhkan Gol. 
+*Tip: To visit the source of the impressive Muchartin Gol and refill your water, leave your bike at the yurt near the "left to Enderhairhan" sign and walk to the oasis with light luggage.* The difficulty eases significantly once you reach the bridge in Myangad, where you hit asphalt for the final kilometers into Khovd.
+</div>
+</details>
+
+<details>
+<summary>EAST SECTION (ULAANBAATAR TO ULIASTAI)</summary>
+<div>
+
+This section traverses the scenic Orkhon Valley and follows the White Lake to the foot of Mongolia’s holiest mountain, Otgon Tenger.
+
+**The Start:** Just a few kilometers outside the capital, you leave the asphalt for sandy and rocky tracks toward Kharkhorin. 
+**Orkhon Valley:** Kharkhorin, the ancient capital of Genghis Khan, is the gateway to the valley. From here, you cross steep passes to reach the Tsenkher Hot Springs. Note: The bridge at the end of the valley was destroyed in 2014. If crossing is problematic due to high water, stay on the right side of the river.
+**Tsetserleg to Otgon Tenger:** From Tsetserleg, follow the partially paved A0602 to Tsahir to tackle Nuven Dawaa, a 3,000 m pass. The northern ascent is a stony path that becomes incredibly steep at the top; the southern descent is rougher with boulders and mud.
+**The Finish:** After Otgon village, the track deteriorates into a miserable washboard surface until you reach Uliastai.
+</div>
+</details>
+
+<details>
+<summary>NORTH SECTION (MÖRÖN TO ULIASTAI)</summary>
+<div>
+
+This route connects Mörön with Uliastai and includes technical singletracks and significant hike-a-bike; it is not suitable for classic touring bikes.
+
+**Khövsgöl to Ulaan Uul:** From Khatgal, the route traverses the Khoridol Saridag mountains. It is a demanding singletrack and hike-a-bike crossing. We strongly recommend attempting this only in the **North-to-South** direction due to the extremely steep southern descent.
+**Singletrack Bliss:** South of Ulaan Uul, look for a motorcycle trail on the right side of the river valley before Bayan Zurkh to avoid multiple river crossings.
+**Canyon & Permits:** From Bayan Zurkh, you ride through an impressive canyon and cross the Delger Mörön via a pontoon bridge. *Note: The stretch between the bridge and Tsetserleg requires a border permit, obtainable in Mörön.*
+**Grand Finale:** From Ider, you tackle the Chaluun Us Pass. This trail is unused and wild—starting as an overgrown double track, turning into a fun singletrack, and ending with a short, steep hike-a-bike.
+</div>
+</details>
+
+<details>
+<summary>WEST SECTION (KHOVD TO BORDER)</summary>
+<div>
+
+Heading west from Khovd toward the Chinese border (Bulgan) or the Russian crossing (Tashanta) takes you into Kazakh territory, visible in the yurt designs and local etiquette.
+
+**The Mountains:** The route traverses secluded valleys and crosses three to four passes, the highest reaching 3,200 m. 
+**Bulgan Valley:** As you descend, the track follows an impressive canyon. The road consists of rough river pebbles, making for a bumpy ride down toward the Chinese border.
+**Permits:** While close to the border, we found that a passport was sufficient during several checks, and no special permit was required.
+**Alternatives:** South of Deluun, you can also head north toward Ölgii. From Tolbo onward, the road to the Russian border is fully paved.
+</div>
+</details>
+
+<details>
+<summary>WINTER BIKING (LAKE KHÖVSGÖL)</summary>
+<div>
+
+Khövsgöl Lake freezes from January through March, creating a spectacular but unforgiving arena for winter cycling. Local contacts like Gambaa (MS Guesthouse) in Khatgal can be excellent resources for ice conditions.
+
+**Route:** Ride along the western bank, navigating the bays from cape to cape. The crossing typically takes three days. *Warning: The big bay at Doloon Uul is a major compression zone—expect active cracks.*
+**Logistics:** Daytime temperatures hover between -20°C and -30°C (-40°C at night). Unlike Lake Baikal, we identified yurts/lodges to sleep indoors: 
+* Toylogt: 50.651914N / 100.235172E
+* Hachum: 51.126739N / 100.320688E
+* Jigleg: 51.003579N / 100.281194E
+
+**Expert Level:** The extreme cold and the psychological pressure of "living" ice require prior experience in extreme winter cycling. For more detailed tips on navigating hazards and riding on ice, please refer to our **Lake Baikal** route description.
+</div>
+</details>
+
+## DIFFICULTY
+
+Mongolia demands high physical fitness and mental resilience. While some sections are doable on touring bikes with 2.25" tires, a **lightweight bikepacking setup** is highly recommended for the sand and steep passes. You must be comfortable with self-sufficient navigation and unpredictable weather.
